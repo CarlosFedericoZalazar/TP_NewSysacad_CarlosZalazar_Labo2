@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "CipkVMJ+GrFFBJx/8sQLfw0F+Utri4/TRPk7YdF41P8AIMjfkufSWUl7oc0OssK/KjkM5gbL0rW/WUU5/1ixog==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\NEW SYSACAD UTN\\TP_LABO_2_SYSACAD\\NewSysacadTP\\NewSysacadTP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

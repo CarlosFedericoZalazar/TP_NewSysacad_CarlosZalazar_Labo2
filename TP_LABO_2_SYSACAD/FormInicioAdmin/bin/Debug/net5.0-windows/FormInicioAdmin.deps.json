@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "FormInicioAdmin/1.0.0": {
+        "dependencies": {
+          "BibliotecaClasesTP": "1.0.0"
+        },
+        "runtime": {
+          "FormInicioAdmin.dll": {}
+        }
+      },
+      "BibliotecaClasesTP/1.0.0": {
+        "runtime": {
+          "BibliotecaClasesTP.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FormInicioAdmin/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BibliotecaClasesTP/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

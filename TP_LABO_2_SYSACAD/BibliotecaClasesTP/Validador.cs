@@ -107,7 +107,7 @@ namespace BibliotecaClasesTP
 
             foreach (var itemEstudiante in listaEstudiantes) 
             {
-                if (estudiante == itemEstudiante) 
+                if (estudiante.Dni == itemEstudiante.Dni) 
                 {
                     return false;
                 }            

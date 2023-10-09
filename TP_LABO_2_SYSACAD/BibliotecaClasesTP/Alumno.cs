@@ -17,42 +17,13 @@ namespace BibliotecaClasesTP
             habilitadoCambioPass = cambioPass;
         }
 
-        //public static bool operator ==(Alumno estudianteUno, Alumno estudianteDos)
-        //{            
-            
-        //    if (estudianteUno.Dni == estudianteDos.Dni || estudianteDos==null)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
         public List<string> ListaMaterias { get => materias; set => materias=value; }
 
 
         public Pagos PagosCursada { get=>_pagosCursada; set=>_pagosCursada = value; }
         public bool CambioPass { get=> habilitadoCambioPass; set=> habilitadoCambioPass=value; }
 
-        //public static bool operator !=(Alumno estudianteUno, Alumno estudianteDos)
-        //{
-        //    return (estudianteUno == estudianteDos);
-        //}
 
-        //public override int GetHashCode()
-        //{            
-        //    return Dni.GetHashCode();
-        //}
-
-        //public override bool Equals(object obj)
-        //{
-        //    if (obj == null || GetType() != obj.GetType())
-        //    {
-        //        return false;
-        //    }
-
-        //    Alumno other = (Alumno)obj;
-        //    return Dni == other.Dni;
-        //}
         public string AsignarLegajo(int legajoAlumno) => (legajoAlumno++).ToString();
 
         public void EnviarCredenciales(Alumno infoAlumno) 

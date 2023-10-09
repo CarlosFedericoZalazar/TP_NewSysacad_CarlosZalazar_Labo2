@@ -48,6 +48,5 @@ namespace BibliotecaClasesTP
         }
         public string AsignarLegajoAlumno() => GestorDeClases.GenerarLegajo();
 
-
     }
 }

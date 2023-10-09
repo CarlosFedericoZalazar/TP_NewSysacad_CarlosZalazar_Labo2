@@ -131,7 +131,28 @@ namespace FormsSysacadApp
         {
             string stringDireccion = $"{txtStreet.Text} {txtNumStreet.Text} {txtDepto.Text}, {txtCity.Text}";
             Alumno estudiante = new Alumno(txtName.Text, txtSurname.Text, txtDocument.Text, "0", "0", checkChangePass.Checked,stringDireccion, txtEmail.Text, txtPhone.Text);
-            ConfirmarDatos(estudiante);      
+            if (Validador.ValidarExistenciaDeRegistro(estudiante))
+            {
+                ConfirmarDatos(estudiante);
+            }
+            else
+            {
+                DialogResult resultado = MessageBox.Show($"El registro Ya existe, desea intentar cargar nuevamente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    this.Close();
+                    FormRegStudent formularioRegistroEstudiante = new FormRegStudent();
+                    formularioRegistroEstudiante.admnistradorLogueado = admnistradorLogueado;
+                    formularioRegistroEstudiante.Show();
+                }
+                else
+                {
+                    Program.formularioAdministrador.Show();
+                    this.Close();
+                }
+            }
+                  
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

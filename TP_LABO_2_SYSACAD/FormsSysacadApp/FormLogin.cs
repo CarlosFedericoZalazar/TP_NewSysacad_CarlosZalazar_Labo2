@@ -113,7 +113,9 @@ namespace FormsSysacadApp
                 buttonAceptar.Focus();
             }
         }
-
+        /// <summary>
+        /// HARCODE DOS ADMNISTRADORES PARA HACER PRUEBAS
+        /// </summary>
         private void CrearNuevoAdministrador()
         {
             string hash1 = GestorDeClases.Hash.GenerarHash("1234");
@@ -130,18 +132,6 @@ namespace FormsSysacadApp
         {
             txtUsuario.Text = "0";
             txtPass.Text = "44286438";
-        }
-
-        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {            
-            //DialogResult resultado = MessageBox.Show("¿Estás seguro de que quieres salir?",
-            //                                        "Confirmación",
-            //                                        MessageBoxButtons.YesNo,
-            //                                        MessageBoxIcon.Question);
-            //if (resultado == DialogResult.No)
-            //{
-            //    e.Cancel = true;
-            //}
         }
 
         private void FormLogin_Load(object sender, EventArgs e)

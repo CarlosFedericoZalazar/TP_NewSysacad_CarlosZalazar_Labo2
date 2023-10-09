@@ -46,9 +46,9 @@ namespace FormsSysacadApp
             this.listMaterias.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listMaterias.FormattingEnabled = true;
             this.listMaterias.ItemHeight = 20;
-            this.listMaterias.Location = new System.Drawing.Point(520, 85);
+            this.listMaterias.Location = new System.Drawing.Point(657, 85);
             this.listMaterias.Name = "listMaterias";
-            this.listMaterias.Size = new System.Drawing.Size(247, 324);
+            this.listMaterias.Size = new System.Drawing.Size(392, 324);
             this.listMaterias.TabIndex = 0;
             this.listMaterias.SelectedIndexChanged += new System.EventHandler(this.listMaterias_SelectedIndexChanged_1);
             // 
@@ -60,7 +60,7 @@ namespace FormsSysacadApp
             "MAÑANA",
             "TARDE",
             "NOCHE"});
-            this.cbTurnos.Location = new System.Drawing.Point(369, 85);
+            this.cbTurnos.Location = new System.Drawing.Point(494, 108);
             this.cbTurnos.Name = "cbTurnos";
             this.cbTurnos.Size = new System.Drawing.Size(121, 23);
             this.cbTurnos.TabIndex = 1;
@@ -68,7 +68,7 @@ namespace FormsSysacadApp
             // 
             // btnInscribirse
             // 
-            this.btnInscribirse.Location = new System.Drawing.Point(350, 183);
+            this.btnInscribirse.Location = new System.Drawing.Point(494, 198);
             this.btnInscribirse.Name = "btnInscribirse";
             this.btnInscribirse.Size = new System.Drawing.Size(131, 64);
             this.btnInscribirse.TabIndex = 2;
@@ -78,7 +78,7 @@ namespace FormsSysacadApp
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(520, 443);
+            this.txtDescripcion.Location = new System.Drawing.Point(657, 456);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(223, 23);
             this.txtDescripcion.TabIndex = 4;
@@ -86,7 +86,7 @@ namespace FormsSysacadApp
             // lblDecsripcion
             // 
             this.lblDecsripcion.AutoSize = true;
-            this.lblDecsripcion.Location = new System.Drawing.Point(520, 415);
+            this.lblDecsripcion.Location = new System.Drawing.Point(657, 428);
             this.lblDecsripcion.Name = "lblDecsripcion";
             this.lblDecsripcion.Size = new System.Drawing.Size(140, 15);
             this.lblDecsripcion.TabIndex = 5;
@@ -96,7 +96,7 @@ namespace FormsSysacadApp
             // 
             this.lblListadoCursos.AutoSize = true;
             this.lblListadoCursos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblListadoCursos.Location = new System.Drawing.Point(560, 52);
+            this.lblListadoCursos.Location = new System.Drawing.Point(657, 52);
             this.lblListadoCursos.Name = "lblListadoCursos";
             this.lblListadoCursos.Size = new System.Drawing.Size(157, 20);
             this.lblListadoCursos.TabIndex = 6;
@@ -106,7 +106,7 @@ namespace FormsSysacadApp
             // 
             this.lblTurnos.AutoSize = true;
             this.lblTurnos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTurnos.Location = new System.Drawing.Point(402, 52);
+            this.lblTurnos.Location = new System.Drawing.Point(527, 75);
             this.lblTurnos.Name = "lblTurnos";
             this.lblTurnos.Size = new System.Drawing.Size(53, 20);
             this.lblTurnos.TabIndex = 7;
@@ -119,22 +119,23 @@ namespace FormsSysacadApp
             this.listCursosAlumno.ItemHeight = 20;
             this.listCursosAlumno.Location = new System.Drawing.Point(54, 85);
             this.listCursosAlumno.Name = "listCursosAlumno";
-            this.listCursosAlumno.Size = new System.Drawing.Size(247, 324);
+            this.listCursosAlumno.Size = new System.Drawing.Size(392, 324);
             this.listCursosAlumno.TabIndex = 8;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(89, 52);
+            this.label1.Location = new System.Drawing.Point(54, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "CURSOS:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(114, 434);
+            this.btnAceptar.Location = new System.Drawing.Point(185, 434);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(141, 64);
             this.btnAceptar.TabIndex = 10;
@@ -147,7 +148,7 @@ namespace FormsSysacadApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(853, 516);
+            this.ClientSize = new System.Drawing.Size(1114, 516);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listCursosAlumno);
@@ -158,8 +159,12 @@ namespace FormsSysacadApp
             this.Controls.Add(this.btnInscribirse);
             this.Controls.Add(this.cbTurnos);
             this.Controls.Add(this.listMaterias);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormInscripCursosAlum";
-            this.Text = "FormInscripCursosAlum";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "NEW SYSACAD - INSCRIPCION A CURSOS";
             this.Load += new System.EventHandler(this.FormInscripCursosAlum_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -27,42 +27,27 @@ namespace BibliotecaClasesTP
         public string Password { get=>_password; set => _password = value; }
         public string Legajo { get=> $"{_legajo}" ; set => _legajo = value; }
 
-
-        public void AltaRegistro(Curso nuevoRegistro) 
+        public void AltaCurso(Curso nuevoRegistro)
         {
-            ClaseMaestra listaCursoClaseMaestra = Datos.Abrir();
-            listaCursoClaseMaestra.Cursos.Add(nuevoRegistro);
-            Datos.Guardar(listaCursoClaseMaestra);
+            GestorDeClases.AltaRegistro(nuevoRegistro);
         }
 
-        public void AltaRegistro(Alumno nuevoRegistro)
+        public void AltaEstudiante(Alumno nuevoRegistro) 
         {
-            ClaseMaestra listaCursoClaseMaestra = Datos.Abrir();
-            listaCursoClaseMaestra.Estudiantes.Add(nuevoRegistro);
-            Datos.Guardar(listaCursoClaseMaestra);
+            GestorDeClases.AltaRegistro(nuevoRegistro);
         }
 
         public void EliminarCurso(Curso cursoDelete)
         {
             GestorDeClases.EliminarRegistro(cursoDelete);
         }
-            
 
-
-        public void ModificarRegistro(Curso curso, Curso cursoModificado) 
+        public void ModificarCurso(Curso curso, Curso cursoModificado) 
         {
-            ClaseMaestra archivo = Datos.Abrir();
-            var listaCursos = archivo.Cursos;
-            int indice = listaCursos.IndexOf(curso);
-            archivo.Cursos[indice] = cursoModificado;
-            Datos.Guardar(archivo);
+            GestorDeClases.ModificarRegistroCurso(curso, cursoModificado);
         }
+        public string AsignarLegajoAlumno() => GestorDeClases.GenerarLegajo();
 
-        public string AsignarLegajoAlumno() 
-        {
-            ClaseMaestra archivo = Datos.Abrir();
-            return archivo.Estudiantes.Count().ToString();
-        }
 
     }
 }

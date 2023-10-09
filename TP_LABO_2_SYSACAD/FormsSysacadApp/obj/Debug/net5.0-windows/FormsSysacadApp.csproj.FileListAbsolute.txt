@@ -44,7 +44,6 @@ C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\FormsSysacadApp\obj\D
 C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\FormsSysacadApp\obj\Debug\net5.0-windows\FormsSysacadApp.FormAlumno.resources
 C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\FormsSysacadApp\obj\Debug\net5.0-windows\FormsSysacadApp.FormEditCurso.resources
 C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\FormsSysacadApp\obj\Debug\net5.0-windows\FormsSysacadApp.FormInscripCursosAlum.resources
-C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\FormsSysacadApp\obj\Debug\net5.0-windows\FormsSysacadApp.FormListarInformacion.resources
 C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\FormsSysacadApp\obj\Debug\net5.0-windows\FormsSysacadApp.FormLogin.resources
 C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\FormsSysacadApp\obj\Debug\net5.0-windows\FormsSysacadApp.FormRegStudent.resources
 C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\FormsSysacadApp\obj\Debug\net5.0-windows\FormsSysacadApp.Properties.Resources.resources

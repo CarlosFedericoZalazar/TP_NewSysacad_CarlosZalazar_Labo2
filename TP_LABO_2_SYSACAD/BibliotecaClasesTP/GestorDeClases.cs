@@ -108,5 +108,34 @@ namespace BibliotecaClasesTP
             return listaAlumnos;
         }
 
+        public static void ModificarRegistroCurso(Curso curso, Curso cursoModificado)
+        {
+            ClaseMaestra archivo = Datos.Abrir();
+            var listaCursos = archivo.Cursos;
+            int indice = listaCursos.IndexOf(curso);
+            archivo.Cursos[indice] = cursoModificado;
+            Datos.Guardar(archivo);
+        }
+
+        public static string  GenerarLegajo() 
+        {
+            ClaseMaestra archivo = Datos.Abrir();
+            return archivo.Estudiantes.Count().ToString();
+        }
+
+        public static void AltaRegistro(Alumno nuevoRegistro)
+        {
+            ClaseMaestra listaCursoClaseMaestra = Datos.Abrir();
+            listaCursoClaseMaestra.Estudiantes.Add(nuevoRegistro);
+            Datos.Guardar(listaCursoClaseMaestra);
+        }
+
+        public static void AltaRegistro(Curso nuevoRegistro)
+        {
+            ClaseMaestra listaCursoClaseMaestra = Datos.Abrir();
+            listaCursoClaseMaestra.Cursos.Add(nuevoRegistro);
+            Datos.Guardar(listaCursoClaseMaestra);
+        }
+
     }
 }

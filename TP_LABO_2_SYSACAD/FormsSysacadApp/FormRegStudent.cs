@@ -159,7 +159,7 @@ namespace FormsSysacadApp
                 estudiante.Password = GestorDeClases.Hash.GenerarHash(estudiante.Dni);
 
                 estudiante.Legajo = admnistradorLogueado.AsignarLegajoAlumno();
-                admnistradorLogueado.AltaRegistro(estudiante);
+                admnistradorLogueado.AltaEstudiante(estudiante);
 
                 resultado = MessageBox.Show($"Desea cargar otro registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 

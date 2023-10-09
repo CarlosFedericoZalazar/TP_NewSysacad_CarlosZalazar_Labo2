@@ -106,7 +106,7 @@ namespace FormsSysacadApp
                 if (Validador.ValidarExistenciaDeRegistro(curso))
                 {
                     string aux = admnistradorLogueado.Nombre;
-                    admnistradorLogueado.AltaRegistro(curso);
+                    admnistradorLogueado.AltaCurso(curso);
                     //Program.formularioAdminCursos.ActualizarLista();
                     this.Close();
                 }

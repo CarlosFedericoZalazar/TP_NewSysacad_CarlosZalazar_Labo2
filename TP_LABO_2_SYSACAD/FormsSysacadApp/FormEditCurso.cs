@@ -130,7 +130,7 @@ namespace FormsSysacadApp
                 //    listHorarios.Focus();
                 //}
 
-                admnistradorLogueado.ModificarRegistro(infoCurso, cursoModificado);
+                admnistradorLogueado.ModificarCurso(infoCurso, cursoModificado);
 
                 this.Close();
             }

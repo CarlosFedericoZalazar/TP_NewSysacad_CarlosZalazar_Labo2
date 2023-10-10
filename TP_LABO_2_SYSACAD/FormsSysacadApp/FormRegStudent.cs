@@ -159,6 +159,7 @@ namespace FormsSysacadApp
         {
             this.Close();
             Program.formularioAdministrador.Show();
+            Console.WriteLine("hola");
         }
 
         private void ConfirmarDatos(Alumno estudiante) 

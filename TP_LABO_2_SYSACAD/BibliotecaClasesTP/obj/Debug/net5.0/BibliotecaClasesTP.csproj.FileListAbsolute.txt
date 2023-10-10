@@ -22,3 +22,15 @@ C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\BibliotecaClasesTP\ob
 C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\BibliotecaClasesTP\obj\Debug\net5.0\BibliotecaClasesTP.dll
 C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\BibliotecaClasesTP\obj\Debug\net5.0\ref\BibliotecaClasesTP.dll
 C:\Users\Usuario\Desktop\NEW SYSACAD UTN\TP_LABO_2_SYSACAD\BibliotecaClasesTP\obj\Debug\net5.0\BibliotecaClasesTP.pdb
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\bin\Debug\net5.0\BibliotecaClasesTP.deps.json
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\bin\Debug\net5.0\BibliotecaClasesTP.dll
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\bin\Debug\net5.0\ref\BibliotecaClasesTP.dll
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\bin\Debug\net5.0\BibliotecaClasesTP.pdb
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\obj\Debug\net5.0\BibliotecaClasesTP.csproj.AssemblyReference.cache
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\obj\Debug\net5.0\BibliotecaClasesTP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\obj\Debug\net5.0\BibliotecaClasesTP.AssemblyInfoInputs.cache
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\obj\Debug\net5.0\BibliotecaClasesTP.AssemblyInfo.cs
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\obj\Debug\net5.0\BibliotecaClasesTP.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\obj\Debug\net5.0\BibliotecaClasesTP.dll
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\obj\Debug\net5.0\ref\BibliotecaClasesTP.dll
+C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\BibliotecaClasesTP\obj\Debug\net5.0\BibliotecaClasesTP.pdb

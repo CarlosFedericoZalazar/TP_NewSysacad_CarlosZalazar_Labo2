@@ -58,11 +58,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\NEW SYSACAD UTN\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
       "projectName": "BibliotecaClasesTP",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\NEW SYSACAD UTN\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\NEW SYSACAD UTN\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

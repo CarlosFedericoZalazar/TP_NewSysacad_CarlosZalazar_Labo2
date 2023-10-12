@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2si467DP4jjzNKlcaQfY3hkIZJ3fKp7sSF4y9q9O9z5UYyEQFsuj6o7LS4b7UY+fMzTItBVka544HY+1Y4mcwg==",
+  "dgSpecHash": "y9B+QDtfVp43a8TWyY+UnhQAW6bObwkTMMzjdvZloqwj3QPMxt5MKVO8Oh6yVEqvKoQkvoM3PXFyNbPB9hu0WQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
   ],

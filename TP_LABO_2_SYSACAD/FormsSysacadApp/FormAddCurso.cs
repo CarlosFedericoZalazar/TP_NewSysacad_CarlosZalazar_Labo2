@@ -17,12 +17,10 @@ namespace FormsSysacadApp
         TARDE,
         NOCHE
     }
-
-
     public partial class FormAddCurso : Form
     {
         private int maximaCantidadAlumnoCurso = 50;
-        
+
         public FormAddCurso()
         {
             InitializeComponent();
@@ -107,13 +105,13 @@ namespace FormsSysacadApp
                 {
                     string aux = admnistradorLogueado.Nombre;
                     admnistradorLogueado.AltaCurso(curso);
-                    //Program.formularioAdminCursos.ActualizarLista();
                     this.Close();
                 }
                 else
                 {
                     MessageBox.Show("EL REGISTRO YA EXISTE");
-                    this.Close();
+                    txtCodCurso.Focus();
+                    //this.Close();
                 }
             }
             else

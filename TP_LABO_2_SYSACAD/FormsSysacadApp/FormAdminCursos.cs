@@ -14,10 +14,11 @@ namespace FormsSysacadApp
 {
     public partial class FormAdminCursos : Form
     {
-        public FormAdminCursos()
+        private FormAdmin formularioAdministrador;
+        public FormAdminCursos(FormAdmin formualrioAdministrador)
         {
             InitializeComponent();
-            this.Activated += FormAdminCursos_Activated;
+            formularioAdministrador = formualrioAdministrador;
         }
 
         public Administrador admnistradorLogueado { get; set; }
@@ -53,8 +54,8 @@ namespace FormsSysacadApp
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            formularioAdministrador.Show();
             this.Close();
-            Program.formularioAdministrador.Show();
         }
 
         private void btnDeleteCurso_Click(object sender, EventArgs e)
@@ -62,7 +63,6 @@ namespace FormsSysacadApp
 
             if (listBoxCursos.SelectedIndex != -1)
             {
-
                 Curso cursoBorrar = (Curso)listBoxCursos.SelectedItem;
                 DialogResult resultado = MessageBox.Show("¿Desea eliminar curso seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -70,7 +70,6 @@ namespace FormsSysacadApp
                 {
                     admnistradorLogueado.EliminarCurso(cursoBorrar);
                     CargaCursosEnLista();
-
                 }
             }
             else

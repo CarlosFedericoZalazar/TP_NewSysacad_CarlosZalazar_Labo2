@@ -73,10 +73,17 @@ namespace FormsSysacadApp
         
         private void AperturaFormularioAdministrador(Administrador administrador)
         {
-            Program.formularioAdministrador = new FormAdmin();
-            Program.formularioAdministrador.admnistradorLogueado = administrador;            
-            Program.formularioAdministrador.Show();
+            //Program.formularioAdministrador = new FormAdmin();
+            //Program.formularioAdministrador.admnistradorLogueado = administrador;            
+            //Program.formularioAdministrador.Show();
+            //this.Hide();
+
+            FormAdmin formularioAdministrador = new FormAdmin(this);
+            formularioAdministrador.admnistradorLogueado = administrador;
+            formularioAdministrador.Show();
             this.Hide();
+
+
         }
 
         /// <summary>

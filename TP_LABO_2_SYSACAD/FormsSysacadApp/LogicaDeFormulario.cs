@@ -8,6 +8,7 @@ using System.Drawing; // para usar point
 using BibliotecaClasesTP;
 using System.Collections;
 
+
 namespace FormsSysacadApp
 {
     public class LogicaDeFormulario
@@ -75,6 +76,63 @@ namespace FormsSysacadApp
                     listActualizar.Items.Add(curso);
                 }                
             }
+        }
+        //------------------------------------------------------------------------------
+        public static bool ValidarNombreApellido(List<TextBox> listaNombreApellido, Label labelError) 
+        {
+            foreach (TextBox itemtxtBox in listaNombreApellido) 
+            {
+                if (!Validador.ValidarTexto(itemtxtBox.Text) || itemtxtBox.Text=="") 
+                {
+                    PosicionamientoLabelError(itemtxtBox, labelError);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static bool ValidarDni(TextBox txtDni) 
+        {
+            if (Validador.ValidarFormatoDni(txtDni.Text) && txtDni.Text != "") 
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool ValidarTextosVacios(List<TextBox> listaCajaTexto, Label labelError)
+        {
+            foreach (TextBox itemtxtBox in listaCajaTexto)
+            {
+                if (itemtxtBox.Text == "")
+                {
+                    PosicionamientoLabelError(itemtxtBox, labelError);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static bool ValidarTextoMail(TextBox cajaTexto, Label labelError)
+        {
+            bool emailOk = false;
+            emailOk = Validador.ValidarEmail(cajaTexto.Text);
+            if (emailOk) 
+            {
+                return true;
+            }
+            PosicionamientoLabelError(cajaTexto, labelError);
+            return false;
+        }
+
+        public static void PosicionamientoLabelError(TextBox cajaTexto, Label labelError)
+        {
+            int PosX = cajaTexto.Location.X;
+            int PosY = cajaTexto.Location.Y + 25;
+
+            labelError.Location = new System.Drawing.Point(PosX, PosY);
+            labelError.Visible = true;
+            //cajaTexto.Focus();
         }
 
     }

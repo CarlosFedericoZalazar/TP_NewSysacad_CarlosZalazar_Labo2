@@ -150,7 +150,30 @@ namespace BibliotecaClasesTP
             }
             return false;
         }
-        
+
+        public static bool ValidarFormatoDni(string dni)
+        {
+            string patron = @"^([0-9]{7}|[0-9]{8})$";
+            if (Regex.IsMatch(dni, patron))
+            {
+                Console.WriteLine("Formato válido.");
+            }
+            else
+            {
+                Console.WriteLine("Formato inválido.");
+            }
+            return true;
+        }
+
+        public static bool ValidarEmail(string email) 
+        {
+            string patron = @"[A-Z.-]+@[A-Z\d\.-]+\.[A-Z]{2,3}$";
+            
+            Match match = Regex.Match(email, patron);
+            return match.Success;
+        }
+
+
 
 
 

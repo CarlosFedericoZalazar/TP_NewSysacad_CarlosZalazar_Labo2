@@ -13,29 +13,29 @@ namespace FormsSysacadApp
 {
     public partial class FormAdmin : Form
     {
-        public FormAdmin()
+        private FormLogin formularioAdmin;
+        public FormAdmin(FormLogin formularioAdministrador)
         {
             InitializeComponent();
+            formularioAdmin = formularioAdministrador;
         }
 
         public Administrador admnistradorLogueado { get; set; }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRegEstudiante_Click(object sender, EventArgs e)
         {
-            Program.formularioRegEstudiante = new FormRegStudent();
-            Program.formularioRegEstudiante.admnistradorLogueado = admnistradorLogueado;
-            Program.formularioRegEstudiante.Show();
-
+            FormRegStudent formularioRegEstudiante = new FormRegStudent(this);
+            formularioRegEstudiante.admnistradorLogueado = admnistradorLogueado;
             this.Hide();
-            //Program.formularioRegEstudiante.ShowDialog();
+            formularioRegEstudiante.Show();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Program.formularioAdminCursos = new FormAdminCursos();
-            Program.formularioAdminCursos.admnistradorLogueado = admnistradorLogueado;
-            Program.formularioAdminCursos.Show();
-            Program.formularioAdministrador.Hide();
+        private void btnGestionCurso_Click_1(object sender, EventArgs e)
+        {            
+            FormAdminCursos formularioAdminCursos = new FormAdminCursos(this);
+            this.Hide();
+            formularioAdminCursos.admnistradorLogueado = admnistradorLogueado;
+            formularioAdminCursos.Show();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -44,14 +44,15 @@ namespace FormsSysacadApp
 
             if (resultado == DialogResult.Yes)
             {
+                formularioAdmin.Show();
                 this.Close();
             }
         }
 
         private void FormAdmin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FormLogin formularioLogin = new FormLogin();
-            formularioLogin.Show();
+            //FormLogin formularioLogin = new FormLogin();
+            //formularioLogin.Show();
         }
 
         private void FormAdmin_Load(object sender, EventArgs e)

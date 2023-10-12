@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C68Esdipv0OP/6dGIq/BG0p6H5VlWm57QryzGy6+VKQeG9B6PzIDraCnyEy28Tjv555Ilb08K41hievuaF4vNQ==",
+  "dgSpecHash": "yaahNqx5bVN7Fc/SLgEtDWOnU6ysOHoofaxZahEZN0+vVcxLCBV0fPpIDrAObnm7OIYW+W87pJBoY8QVjCruvw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\FormsSysacadApp\\FormsSysacadApp.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\FormsSysacadApp\\FormsSysacadApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
   ],

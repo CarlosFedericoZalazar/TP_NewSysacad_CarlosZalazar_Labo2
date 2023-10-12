@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj": {}
+    "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
         "projectName": "BibliotecaClasesTP",
-        "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

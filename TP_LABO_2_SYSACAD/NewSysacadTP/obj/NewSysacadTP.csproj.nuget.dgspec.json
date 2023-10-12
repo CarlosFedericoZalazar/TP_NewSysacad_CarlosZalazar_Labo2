@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\NewSysacadTP\\NewSysacadTP.csproj": {}
+    "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\NewSysacadTP\\NewSysacadTP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
         "projectName": "BibliotecaClasesTP",
-        "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\NewSysacadTP\\NewSysacadTP.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\NewSysacadTP\\NewSysacadTP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\NewSysacadTP\\NewSysacadTP.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\NewSysacadTP\\NewSysacadTP.csproj",
         "projectName": "NewSysacadTP",
-        "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\NewSysacadTP\\NewSysacadTP.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\NewSysacadTP\\NewSysacadTP.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\NewSysacadTP\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\NewSysacadTP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -96,8 +96,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj"
+              "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\source\\repos\\TP_NewSysacad_CarlosZalazar_Labo2\\TP_LABO_2_SYSACAD\\BibliotecaClasesTP\\BibliotecaClasesTP.csproj"
               }
             }
           }

@@ -9,15 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BibliotecaClasesTP;
 
+
 namespace FormsSysacadApp
 {
     public partial class FormRegStudent : Form
     {
         List<Alumno> listaAlumnos = new List<Alumno>();
-        
-        public FormRegStudent()
+        private FormAdmin formularioAdmin;
+        public FormRegStudent(FormAdmin formularioAdministrador)
         {
-            InitializeComponent();
+            InitializeComponent();            
+            formularioAdmin = formularioAdministrador;
+            txtName.LostFocus += (sender, e) => ConvertirAMayusculas(txtName);
+            txtSurname.LostFocus += (sender, e) => ConvertirAMayusculas(txtSurname);
+            txtEmail.LostFocus += (sender, e) => ConvertirAMayusculas(txtEmail);
+
+
         }
 
         public Administrador admnistradorLogueado { get; set; }
@@ -25,13 +32,14 @@ namespace FormsSysacadApp
         private void txtName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {
-                txtSurname.Focus(); 
+            {                
+                txtSurname.Focus();
             }
         }
         private void txtName_Leave(object sender, EventArgs e)
         {
-            LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtName.Text), txtName,lblError);
+            txtName.Text.ToUpper();
+            //LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtName.Text), txtName,lblError);
         }
 
         private void txtSurname_KeyDown(object sender, KeyEventArgs e)
@@ -44,7 +52,7 @@ namespace FormsSysacadApp
 
         private void txtSurname_Leave(object sender, EventArgs e)
         {
-            LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtSurname.Text), txtSurname,lblError);
+            txtSurname.Text.ToUpper();
         }
 
         private void txtDocument_KeyDown(object sender, KeyEventArgs e)
@@ -57,7 +65,8 @@ namespace FormsSysacadApp
 
         private void txtDocument_Leave(object sender, EventArgs e)
         {
-            LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarNumeros(txtDocument.Text), txtDocument,lblError);
+            txtPassProvisional.Text = txtDocument.Text;
+            //LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarNumeros(txtDocument.Text), txtDocument,lblError);
         }
 
         private void txtStreet_KeyDown(object sender, KeyEventArgs e)
@@ -70,21 +79,10 @@ namespace FormsSysacadApp
 
         private void txtStreet_Leave(object sender, EventArgs e)
         {
-            LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtStreet.Text), txtNumStreet, lblError);
+            txtStreet.Text.ToUpper();
         }
 
         private void txtCity_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtDepto.Focus();
-        }
-        private void txtDepto_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtCity.Focus();
-            }
-        }
-        private void txtCity_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -93,7 +91,7 @@ namespace FormsSysacadApp
         }
         private void txtCity_Leave(object sender, EventArgs e)
         {
-            LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtStreet.Text), txtEmail,lblError);
+            txtCity.Text.ToUpper();
         }
 
         private void txtNumStreet_KeyDown(object sender, KeyEventArgs e)
@@ -104,7 +102,7 @@ namespace FormsSysacadApp
             }           
         }
 
-        private void txtDepto_KeyDown_1(object sender, KeyEventArgs e)
+        private void txtDepto_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -129,7 +127,15 @@ namespace FormsSysacadApp
         }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            bool comprobartxtNomApellido = ValidacionTextNombreApellido();
+            bool comprobarTxtDni = ValidacionTextdni(txtDocument);
+            bool comprobarTxtVacios = ValidarTextosVacios();
+            bool comprobarTxtEmail = ValidarFormatoEmail();
+            bool comprobarTxTelefono = ValidarFormatoTelefono();
+
+
             string stringDireccion = $"{txtStreet.Text} {txtNumStreet.Text} {txtDepto.Text}, {txtCity.Text}";
+                       
             Alumno estudiante = new Alumno(txtName.Text, txtSurname.Text, txtDocument.Text, "0", "0", checkChangePass.Checked,stringDireccion, txtEmail.Text, txtPhone.Text);
             if (Validador.ValidarExistenciaDeRegistro(estudiante))
             {
@@ -137,34 +143,19 @@ namespace FormsSysacadApp
             }
             else
             {
-                DialogResult resultado = MessageBox.Show($"El registro Ya existe, desea intentar cargar nuevamente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (resultado == DialogResult.Yes)
-                {
-                    this.Close();
-                    FormRegStudent formularioRegistroEstudiante = new FormRegStudent();
-                    formularioRegistroEstudiante.admnistradorLogueado = admnistradorLogueado;
-                    formularioRegistroEstudiante.Show();
-                }
-                else
-                {
-                    Program.formularioAdministrador.Show();
-                    this.Close();
-                }
-            }
-                  
+                DialogResult resultado = MessageBox.Show($"El registro Ya existe, desea intentar cargar nuevamente?", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtDocument.Focus();
+            }                  
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-            Program.formularioAdministrador.Show();
-            Console.WriteLine("hola");
-        }
+            formularioAdmin.Show();            
+         }
 
         private void ConfirmarDatos(Alumno estudiante) 
-        {
-            string informacionEstudiante = "";
+        {            
 
             StringBuilder sbListarinformacion = new StringBuilder();
             sbListarinformacion.AppendLine(estudiante.Nombre);
@@ -172,9 +163,9 @@ namespace FormsSysacadApp
             sbListarinformacion.AppendLine(estudiante.Direccion);
             sbListarinformacion.AppendLine(estudiante.Email);
             sbListarinformacion.AppendLine(estudiante.Telefono);
-            informacionEstudiante = sbListarinformacion.ToString();
+            lblInfoEstudiante.Text = sbListarinformacion.ToString();
 
-            DialogResult resultado = MessageBox.Show($"{informacionEstudiante}\n¿CONFIRMA LA CARGA?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult resultado = MessageBox.Show($"¿CONFIRMA LA CARGA?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (resultado == DialogResult.Yes)
             {
@@ -188,14 +179,13 @@ namespace FormsSysacadApp
                 if (resultado == DialogResult.Yes)
                 {
                     this.Close();
-                    FormRegStudent formularioRegistroEstudiante = new FormRegStudent();
+                    FormRegStudent formularioRegistroEstudiante = new FormRegStudent(formularioAdmin);
                     formularioRegistroEstudiante.admnistradorLogueado = admnistradorLogueado;
                     formularioRegistroEstudiante.Show();
-
                 }
                 else
                 {
-                    Program.formularioAdministrador.Show();
+                    formularioAdmin.Show();                    
                     this.Close();
                 }
 
@@ -203,13 +193,84 @@ namespace FormsSysacadApp
             }
             else
             {
-                // Código para continuar con la carga
+                txtName.Focus();
             }
 
-
-
-
         }
+        // VALIDACIONES
+        private bool ValidacionTextNombreApellido() 
+        {
+            bool validacionOk = true;
+
+            List<TextBox> listaNombreApellido = new List<TextBox>();
+            listaNombreApellido.Add(txtName);
+            listaNombreApellido.Add(txtSurname);            
+            validacionOk = LogicaDeFormulario.ValidarNombreApellido(listaNombreApellido,lblError);
+            return validacionOk;
+        }
+
+        private bool ValidacionTextdni(TextBox txtDni) 
+        {
+            bool validacionOk = true;
+            validacionOk=LogicaDeFormulario.ValidarDni(txtDni);
+            return validacionOk;
+        }
+
+        private bool ValidarTextosVacios() 
+        {
+            bool validacionOk = true;
+            List<TextBox> listaCajasTexto = new List<TextBox>();
+            listaCajasTexto.Add(txtStreet);
+            listaCajasTexto.Add(txtNumStreet);
+            listaCajasTexto.Add(txtCity);
+            listaCajasTexto.Add(txtPhone);
+            validacionOk = LogicaDeFormulario.ValidarTextosVacios(listaCajasTexto, lblError);
+            return validacionOk;
+        }
+
+        private bool ValidarFormatoEmail() 
+        {
+            bool validacionOk = false;
+            validacionOk = LogicaDeFormulario.ValidarTextoMail(txtEmail,lblError);
+            return validacionOk;        
+        }
+
+        private bool ValidarFormatoTelefono()
+        {
+            bool validacionOk = false;
+            validacionOk = Validador.ValidarNumeros(txtPhone.Text);
+            return validacionOk;
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int PosX =  txtPhone.Location.X;
+            int PosY = txtPhone.Location.Y+25;
+            
+            lblError.Location = new System.Drawing.Point(PosX, PosY);
+            lblError.Visible = true;
+            
+        }
+
+        private void FormRegStudent_Load(object sender, EventArgs e)
+        {
+            txtName.Focus();
+        }
+
+        //private void txtName_TextChanged(object sender, EventArgs e)
+        //{
+        //    TextBox textBox = (TextBox)sender;
+        //    textBox.Text = textBox.Text.ToUpper();
+        //    textBox.SelectionStart = textBox.Text.Length;
+        //}
+
+        private void ConvertirAMayusculas(TextBox textBox)
+        {
+            textBox.Text = textBox.Text.ToUpper();
+            textBox.SelectionStart = textBox.Text.Length; // Coloca el cursor al final del texto
+        }
+
     }
 
 }

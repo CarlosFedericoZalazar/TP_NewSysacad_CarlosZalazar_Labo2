@@ -36,6 +36,11 @@ namespace FormsSysacadApp
             this.btnEditarCurso = new System.Windows.Forms.Button();
             this.lblAdminLoged = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgCursos = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCursos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
@@ -63,9 +68,9 @@ namespace FormsSysacadApp
             // 
             this.listBoxCursos.FormattingEnabled = true;
             this.listBoxCursos.ItemHeight = 15;
-            this.listBoxCursos.Location = new System.Drawing.Point(214, 68);
+            this.listBoxCursos.Location = new System.Drawing.Point(214, 248);
             this.listBoxCursos.Name = "listBoxCursos";
-            this.listBoxCursos.Size = new System.Drawing.Size(443, 229);
+            this.listBoxCursos.Size = new System.Drawing.Size(443, 49);
             this.listBoxCursos.TabIndex = 2;
             // 
             // btnDeleteCurso
@@ -107,12 +112,54 @@ namespace FormsSysacadApp
             this.label1.TabIndex = 7;
             this.label1.Text = "CURSOS REGISTRADOS";
             // 
+            // dgCursos
+            // 
+            this.dgCursos.AllowUserToAddRows = false;
+            this.dgCursos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgCursos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgCursos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dgCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.dgCursos.Location = new System.Drawing.Point(214, 68);
+            this.dgCursos.Name = "dgCursos";
+            this.dgCursos.ReadOnly = true;
+            this.dgCursos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgCursos.RowTemplate.Height = 25;
+            this.dgCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgCursos.Size = new System.Drawing.Size(443, 152);
+            this.dgCursos.TabIndex = 8;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Curso";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Codigo";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Cupo Estudiantes";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
             // FormAdminCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(684, 372);
+            this.Controls.Add(this.dgCursos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAdminLoged);
             this.Controls.Add(this.btnEditarCurso);
@@ -124,6 +171,7 @@ namespace FormsSysacadApp
             this.Text = "NEW SYSACAD - PANEL CURSOS";
             this.Activated += new System.EventHandler(this.FormAdminCursos_Activated);
             this.Load += new System.EventHandler(this.FormAdminCursos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgCursos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,5 +186,9 @@ namespace FormsSysacadApp
         private System.Windows.Forms.Button btnEditarCurso;
         private System.Windows.Forms.Label lblAdminLoged;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgCursos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

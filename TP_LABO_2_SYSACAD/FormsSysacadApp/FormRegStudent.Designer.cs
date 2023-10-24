@@ -55,8 +55,6 @@ namespace FormsSysacadApp
             this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblInfoEstudiante = new System.Windows.Forms.Label();
-            this.lblPrueba = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,44 +131,50 @@ namespace FormsSysacadApp
             // 
             // txtName
             // 
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtName.Location = new System.Drawing.Point(37, 46);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(203, 23);
+            this.txtName.Size = new System.Drawing.Size(203, 27);
             this.txtName.TabIndex = 1;
             this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // txtSurname
             // 
+            this.txtSurname.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtSurname.Location = new System.Drawing.Point(246, 46);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(203, 23);
+            this.txtSurname.Size = new System.Drawing.Size(203, 27);
             this.txtSurname.TabIndex = 2;
             this.txtSurname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSurname_KeyDown);
             this.txtSurname.Leave += new System.EventHandler(this.txtSurname_Leave);
             // 
             // txtDocument
             // 
+            this.txtDocument.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDocument.Location = new System.Drawing.Point(37, 114);
             this.txtDocument.Name = "txtDocument";
-            this.txtDocument.Size = new System.Drawing.Size(203, 23);
+            this.txtDocument.Size = new System.Drawing.Size(203, 27);
             this.txtDocument.TabIndex = 3;
             this.txtDocument.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDocument_KeyDown);
+            this.txtDocument.Leave += new System.EventHandler(this.txtDocument_Leave);
             // 
             // txtStreet
             // 
+            this.txtStreet.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtStreet.Location = new System.Drawing.Point(37, 208);
             this.txtStreet.Name = "txtStreet";
-            this.txtStreet.Size = new System.Drawing.Size(202, 23);
+            this.txtStreet.Size = new System.Drawing.Size(202, 27);
             this.txtStreet.TabIndex = 4;
             this.txtStreet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtStreet_KeyDown);
             this.txtStreet.Leave += new System.EventHandler(this.txtStreet_Leave);
             // 
             // txtDepto
             // 
+            this.txtDepto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDepto.Location = new System.Drawing.Point(373, 208);
             this.txtDepto.Name = "txtDepto";
-            this.txtDepto.Size = new System.Drawing.Size(76, 23);
+            this.txtDepto.Size = new System.Drawing.Size(76, 27);
             this.txtDepto.TabIndex = 6;
             this.txtDepto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDepto_KeyDown);
             // 
@@ -186,17 +190,19 @@ namespace FormsSysacadApp
             // 
             // txtNumStreet
             // 
+            this.txtNumStreet.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtNumStreet.Location = new System.Drawing.Point(258, 208);
             this.txtNumStreet.Name = "txtNumStreet";
-            this.txtNumStreet.Size = new System.Drawing.Size(70, 23);
+            this.txtNumStreet.Size = new System.Drawing.Size(70, 27);
             this.txtNumStreet.TabIndex = 5;
             this.txtNumStreet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumStreet_KeyDown);
             // 
             // txtCity
             // 
+            this.txtCity.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCity.Location = new System.Drawing.Point(37, 271);
             this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(199, 23);
+            this.txtCity.Size = new System.Drawing.Size(199, 27);
             this.txtCity.TabIndex = 7;
             this.txtCity.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCity_KeyDown);
             this.txtCity.Leave += new System.EventHandler(this.txtCity_Leave);
@@ -212,10 +218,11 @@ namespace FormsSysacadApp
             // 
             // txtPassProvisional
             // 
+            this.txtPassProvisional.Enabled = false;
+            this.txtPassProvisional.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPassProvisional.Location = new System.Drawing.Point(258, 114);
             this.txtPassProvisional.Name = "txtPassProvisional";
-            this.txtPassProvisional.ReadOnly = true;
-            this.txtPassProvisional.Size = new System.Drawing.Size(191, 23);
+            this.txtPassProvisional.Size = new System.Drawing.Size(191, 27);
             this.txtPassProvisional.TabIndex = 18;
             // 
             // checkChangePass
@@ -263,17 +270,19 @@ namespace FormsSysacadApp
             // 
             // txtPhone
             // 
+            this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPhone.Location = new System.Drawing.Point(526, 114);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(202, 23);
+            this.txtPhone.Size = new System.Drawing.Size(202, 27);
             this.txtPhone.TabIndex = 9;
             this.txtPhone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPhone_KeyDown);
             // 
             // txtEmail
             // 
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtEmail.Location = new System.Drawing.Point(526, 46);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(202, 23);
+            this.txtEmail.Size = new System.Drawing.Size(202, 27);
             this.txtEmail.TabIndex = 8;
             this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
             // 
@@ -290,11 +299,12 @@ namespace FormsSysacadApp
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(150)))));
             this.groupBox1.Controls.Add(this.lblInfoEstudiante);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(497, 197);
+            this.groupBox1.Location = new System.Drawing.Point(481, 197);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(275, 191);
+            this.groupBox1.Size = new System.Drawing.Size(314, 191);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS CARGADOS";
@@ -302,30 +312,12 @@ namespace FormsSysacadApp
             // lblInfoEstudiante
             // 
             this.lblInfoEstudiante.AutoSize = true;
+            this.lblInfoEstudiante.Font = new System.Drawing.Font("Arial Narrow", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblInfoEstudiante.Location = new System.Drawing.Point(6, 34);
             this.lblInfoEstudiante.Name = "lblInfoEstudiante";
-            this.lblInfoEstudiante.Size = new System.Drawing.Size(98, 21);
+            this.lblInfoEstudiante.Size = new System.Drawing.Size(70, 16);
             this.lblInfoEstudiante.TabIndex = 0;
             this.lblInfoEstudiante.Text = "informacion";
-            // 
-            // lblPrueba
-            // 
-            this.lblPrueba.AutoSize = true;
-            this.lblPrueba.Location = new System.Drawing.Point(329, 253);
-            this.lblPrueba.Name = "lblPrueba";
-            this.lblPrueba.Size = new System.Drawing.Size(38, 15);
-            this.lblPrueba.TabIndex = 26;
-            this.lblPrueba.Text = "label5";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(310, 287);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "PRUEBA";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormRegStudent
             // 
@@ -333,8 +325,6 @@ namespace FormsSysacadApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(807, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lblPrueba);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.label3);
@@ -363,7 +353,6 @@ namespace FormsSysacadApp
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormRegStudent";
             this.Text = "NEW SYSACAD - REGISTRO NUEVO ALUMNO";
-            this.Load += new System.EventHandler(this.FormRegStudent_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -398,8 +387,6 @@ namespace FormsSysacadApp
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPassProvisional;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblPrueba;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblInfoEstudiante;
     }
 }

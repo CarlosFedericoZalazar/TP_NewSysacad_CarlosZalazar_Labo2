@@ -77,6 +77,32 @@ namespace FormsSysacadApp
                 }                
             }
         }
+
+
+        
+        public static void ActualizarContenidoDataGridView(DataGridView listActualizar, string filter = null, bool sort = true)
+        {
+            var listaCursos = GestorDeClases.ExtraerListaCursos();
+
+            //ORDENAMOS LA LISTBOX
+            if (sort)
+            {
+                listaCursos.Sort((a, b) => a.CodigoCurso.CompareTo(b.CodigoCurso));
+            }            
+            listActualizar.Rows.Clear();
+
+            foreach (var curso in listaCursos)
+            {
+                if (curso.TurnoCursada == filter || filter == null)
+                {
+                    listActualizar.Rows.Add(curso.NombreCurso,curso.CodigoCurso,curso.CantidadAlumnos);
+                }
+            }
+        }
+
+
+
+
         //------------------------------------------------------------------------------
         public static bool ValidarNombreApellido(List<TextBox> listaNombreApellido, Label labelError) 
         {
@@ -91,12 +117,13 @@ namespace FormsSysacadApp
             return true;
         }
 
-        public static bool ValidarDni(TextBox txtDni) 
+        public static bool ValidarDni(TextBox txtDni, Label labelError) 
         {
             if (Validador.ValidarFormatoDni(txtDni.Text) && txtDni.Text != "") 
             {
                 return true;
             }
+            PosicionamientoLabelError(txtDni, labelError);
             return false;
         }
 
@@ -132,7 +159,9 @@ namespace FormsSysacadApp
 
             labelError.Location = new System.Drawing.Point(PosX, PosY);
             labelError.Visible = true;
-            //cajaTexto.Focus();
+            cajaTexto.Focus();
+            cajaTexto.SelectAll();
+
         }
 
     }

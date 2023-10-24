@@ -58,8 +58,7 @@ namespace BibliotecaClasesTP
             {
                 if (codigo == itemCurso.CodigoCurso) 
                 {
-                    return itemCurso;
-                    
+                    return itemCurso;                    
                 }
             }
             return null;

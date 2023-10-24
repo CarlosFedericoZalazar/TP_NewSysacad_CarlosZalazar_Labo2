@@ -18,7 +18,7 @@ namespace FormsSysacadApp
         public FormLogin()
         {
             InitializeComponent();
-            //CrearNuevoAdministrador();
+            CrearNuevoAdministrador();
             Console.WriteLine("Inicio del Programa");
         }
 

@@ -14,11 +14,16 @@ namespace FormsSysacadApp
 {
     public partial class FormAdminCursos : Form
     {
-        private FormAdmin formularioAdministrador;
-        public FormAdminCursos(FormAdmin formualrioAdministrador)
+        private FormAdmin _formularioAdministrador;
+        public FormAdminCursos(FormAdmin formularioAdministrador)
         {
             InitializeComponent();
-            formularioAdministrador = formualrioAdministrador;
+            _formularioAdministrador = formularioAdministrador;
+
+            foreach (DataGridViewColumn column in dgCursos.Columns)
+            {
+                column.Resizable = DataGridViewTriState.False;
+            }
         }
 
         public Administrador admnistradorLogueado { get; set; }
@@ -38,44 +43,38 @@ namespace FormsSysacadApp
 
         private void btnEditarCurso_Click(object sender, EventArgs e)
         {
-
-            if (listBoxCursos.SelectedIndex != -1)
+            if (dgCursos.SelectedRows.Count > 0)
             {
                 FormEditCurso formularioEditorCurso = new FormEditCurso();
-                formularioEditorCurso.infoCurso = (Curso)listBoxCursos.SelectedItem;
+                formularioEditorCurso.infoCurso = ItemCursoSeleccionadoDatGrid();
                 formularioEditorCurso.admnistradorLogueado = admnistradorLogueado;
                 formularioEditorCurso.ShowDialog();
-            }
+            }        
             else
             {
                 MessageBox.Show("Debe seleccionar un Curso", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            formularioAdministrador.Show();
-            this.Close();
-        }
 
         private void btnDeleteCurso_Click(object sender, EventArgs e)
         {
+            if (dgCursos.SelectedRows.Count > 0)
+            {               
 
-            if (listBoxCursos.SelectedIndex != -1)
-            {
-                Curso cursoBorrar = (Curso)listBoxCursos.SelectedItem;
                 DialogResult resultado = MessageBox.Show("¿Desea eliminar curso seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
                 if (resultado == DialogResult.Yes)
                 {
+                    Curso cursoBorrar = ItemCursoSeleccionadoDatGrid();
                     admnistradorLogueado.EliminarCurso(cursoBorrar);
                     CargaCursosEnLista();
-                }
+                }                
             }
-            else
-            {
-                MessageBox.Show("Debe seleccionar un Curso", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+        }
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            _formularioAdministrador.Show();
+            this.Close();
         }
 
         private void FormAdminCursos_Activated(object sender, EventArgs e)
@@ -84,8 +83,18 @@ namespace FormsSysacadApp
         }
 
         private void CargaCursosEnLista() 
-        {            
-            LogicaDeFormulario.ActualizarContenidoListBoxes(listBoxCursos);
+        {   
+            LogicaDeFormulario.ActualizarContenidoDataGridView(dgCursos);
+        }
+
+
+        // EVALUAR SI LO METEMOS EN LA LOGICA DEL FORMULARIO
+        private Curso ItemCursoSeleccionadoDatGrid() 
+        {
+            DataGridViewRow filaSeleccionada = dgCursos.SelectedRows[0];
+            string valorCeldaSeleccionada = filaSeleccionada.Cells["Column2"].Value.ToString();
+            
+            return GestorDeClases.AccederCursoPorCodigo(valorCeldaSeleccionada);
         }
     }
 }

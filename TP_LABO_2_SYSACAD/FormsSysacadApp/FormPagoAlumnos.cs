@@ -45,7 +45,7 @@ namespace FormsSysacadApp
             dGridPagos.Columns.Add("GAST.ADMIN", "GAST.ADMIN");
             dGridPagos.Columns.Add("GAST.MAT.ESTUDIOS", "GAST.MAT.ESTUDIOS");
             dGridPagos.Columns.Add("ESTADO", "ESTADO");
-
+            // IMPEDIR QUE EL USUARIO MODIFIQUE EL ANCHO DE COLUMNAS
             foreach (DataGridViewColumn column in dGridPagos.Columns)
             {
                 column.Resizable = DataGridViewTriState.False;

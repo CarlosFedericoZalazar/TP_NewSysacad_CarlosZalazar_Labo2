@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\BibliotecaClasesTP",
+    "\\FormsSysacadApp",
     "\\NewSysacadTP"
   ],
-  "SelectedNode": "\\BibliotecaClasesTP\\Validador.cs",
+  "SelectedNode": "\\FormsSysacadApp\\FormPagoAlumnos.cs",
   "PreviewInSolutionExplorer": false
 }

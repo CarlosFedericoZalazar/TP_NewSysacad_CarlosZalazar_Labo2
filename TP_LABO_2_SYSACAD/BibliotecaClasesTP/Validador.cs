@@ -156,13 +156,9 @@ namespace BibliotecaClasesTP
             string patron = @"^([0-9]{7}|[0-9]{8})$";
             if (Regex.IsMatch(dni, patron))
             {
-                Console.WriteLine("Formato válido.");
+                return true;
             }
-            else
-            {
-                Console.WriteLine("Formato inválido.");
-            }
-            return true;
+            return false;
         }
 
         public static bool ValidarEmail(string email) 

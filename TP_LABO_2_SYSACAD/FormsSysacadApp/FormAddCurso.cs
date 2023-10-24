@@ -32,7 +32,7 @@ namespace FormsSysacadApp
         {
             if (e.KeyCode == Keys.Enter)
             {
-                txtCodCurso.Focus();
+                cbCurso.Focus();
             }
         }
         private void txtNameCurso_Leave(object sender, EventArgs e)
@@ -42,18 +42,6 @@ namespace FormsSysacadApp
 
         }
 
-        private void txtCodCurso_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtDescription.Focus();
-            }
-        }
-        private void txtCodCurso_Leave(object sender, EventArgs e)
-        {
-            txtCodCurso.Text = txtCodCurso.Text.ToUpper();
-            LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarCurso(txtCodCurso.Text), txtCodCurso, lblError);
-        }
         private void txtCantidadAlumnos_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -80,7 +68,7 @@ namespace FormsSysacadApp
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
-        {
+        {            
             int numero = 0;
             try
             {                
@@ -92,8 +80,12 @@ namespace FormsSysacadApp
                 txtCantidadAlumnos.Focus();
             }        
             
-            Curso curso = new Curso(txtNameCurso.Text, txtCodCurso.Text, txtDescription.Text, numero);          
-          
+            Curso curso = new Curso(txtNameCurso.Text, txtCodCurso.Text, txtDescription.Text, numero);
+            if (cbCurso.SelectedIndex != -1 && cbAsignatura.SelectedIndex != -1) 
+            {
+                curso.CodigoCurso = FormatoStringCurso();
+            }
+            MessageBox.Show(curso.CodigoCurso);
 
             if (cbDiasCursada.SelectedIndex != -1 && cbTurnos.SelectedIndex != -1 && listHorarios.SelectedIndex != -1)
             {
@@ -110,7 +102,7 @@ namespace FormsSysacadApp
                 else
                 {
                     MessageBox.Show("EL REGISTRO YA EXISTE");
-                    txtCodCurso.Focus();
+                    cbCurso.Focus();
                     //this.Close();
                 }
             }
@@ -141,12 +133,25 @@ namespace FormsSysacadApp
         private void FormAddCurso_Load(object sender, EventArgs e)
         {            
             cbTurnos.DataSource = Enum.GetValues(typeof(Turno));
-            LogicaDeFormulario.ActualizarContenidoListBoxes(lbCursos);
+            CargaCursosEnLista();
+            //LogicaDeFormulario.ActualizarContenidoListBoxes(lbCursos);
         }
 
         private void cbDiasCursada_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void CargaCursosEnLista()
+        {
+            LogicaDeFormulario.ActualizarContenidoDataGridView(dgCursos);
+        }
+
+        private string FormatoStringCurso() => $"C{cbCurso.SelectedItem.ToString()}A{cbAsignatura.SelectedItem.ToString()}";
+
+        private void cbAsignatura_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtCodCurso.Text = FormatoStringCurso();
         }
     }
 }

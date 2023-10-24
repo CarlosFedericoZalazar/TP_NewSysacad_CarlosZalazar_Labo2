@@ -47,12 +47,16 @@ namespace FormsSysacadApp
             this.lblTurno = new System.Windows.Forms.Label();
             this.listHorarios = new System.Windows.Forms.ListBox();
             this.lblHorarios = new System.Windows.Forms.Label();
-            this.lbCursos = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbCurso = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbAsignatura = new System.Windows.Forms.ComboBox();
+            this.dgCursos = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Turno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCursos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombreCurso
@@ -86,12 +90,11 @@ namespace FormsSysacadApp
             // 
             // txtCodCurso
             // 
-            this.txtCodCurso.Location = new System.Drawing.Point(139, 107);
+            this.txtCodCurso.Location = new System.Drawing.Point(290, 111);
             this.txtCodCurso.Name = "txtCodCurso";
+            this.txtCodCurso.ReadOnly = true;
             this.txtCodCurso.Size = new System.Drawing.Size(63, 23);
             this.txtCodCurso.TabIndex = 3;
-            this.txtCodCurso.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodCurso_KeyDown);
-            this.txtCodCurso.Leave += new System.EventHandler(this.txtCodCurso_Leave);
             // 
             // lblDescripcion
             // 
@@ -118,7 +121,7 @@ namespace FormsSysacadApp
             // 
             this.lblformato.AutoSize = true;
             this.lblformato.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblformato.Location = new System.Drawing.Point(130, 91);
+            this.lblformato.Location = new System.Drawing.Point(281, 95);
             this.lblformato.Name = "lblformato";
             this.lblformato.Size = new System.Drawing.Size(83, 13);
             this.lblformato.TabIndex = 9;
@@ -129,7 +132,7 @@ namespace FormsSysacadApp
             this.btnAceptar.Location = new System.Drawing.Point(400, 331);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(154, 37);
-            this.btnAceptar.TabIndex = 10;
+            this.btnAceptar.TabIndex = 9;
             this.btnAceptar.Text = "ACEPTAR";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -150,7 +153,7 @@ namespace FormsSysacadApp
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(331, 79);
-            this.txtDescription.TabIndex = 13;
+            this.txtDescription.TabIndex = 4;
             this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescription_KeyDown);
             this.txtDescription.Leave += new System.EventHandler(this.txtDescription_Leave);
             // 
@@ -159,7 +162,7 @@ namespace FormsSysacadApp
             this.txtCantidadAlumnos.Location = new System.Drawing.Point(183, 287);
             this.txtCantidadAlumnos.Name = "txtCantidadAlumnos";
             this.txtCantidadAlumnos.Size = new System.Drawing.Size(45, 23);
-            this.txtCantidadAlumnos.TabIndex = 14;
+            this.txtCantidadAlumnos.TabIndex = 5;
             this.txtCantidadAlumnos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidadAlumnos_KeyDown);
             this.txtCantidadAlumnos.Leave += new System.EventHandler(this.txtCantidadAlumnos_Leave);
             // 
@@ -186,7 +189,7 @@ namespace FormsSysacadApp
             this.cbDiasCursada.Location = new System.Drawing.Point(421, 61);
             this.cbDiasCursada.Name = "cbDiasCursada";
             this.cbDiasCursada.Size = new System.Drawing.Size(121, 28);
-            this.cbDiasCursada.TabIndex = 16;
+            this.cbDiasCursada.TabIndex = 6;
             this.cbDiasCursada.SelectedIndexChanged += new System.EventHandler(this.cbDiasCursada_SelectedIndexChanged);
             // 
             // lblDiasCursada
@@ -205,7 +208,7 @@ namespace FormsSysacadApp
             this.cbTurnos.Location = new System.Drawing.Point(421, 122);
             this.cbTurnos.Name = "cbTurnos";
             this.cbTurnos.Size = new System.Drawing.Size(121, 28);
-            this.cbTurnos.TabIndex = 18;
+            this.cbTurnos.TabIndex = 7;
             this.cbTurnos.SelectedIndexChanged += new System.EventHandler(this.cbTurnos_SelectedIndexChanged);
             // 
             // lblTurno
@@ -225,7 +228,7 @@ namespace FormsSysacadApp
             this.listHorarios.Location = new System.Drawing.Point(438, 181);
             this.listHorarios.Name = "listHorarios";
             this.listHorarios.Size = new System.Drawing.Size(86, 64);
-            this.listHorarios.TabIndex = 20;
+            this.listHorarios.TabIndex = 8;
             // 
             // lblHorarios
             // 
@@ -236,42 +239,33 @@ namespace FormsSysacadApp
             this.lblHorarios.TabIndex = 21;
             this.lblHorarios.Text = "Horarios Cursada:";
             // 
-            // lbCursos
-            // 
-            this.lbCursos.FormattingEnabled = true;
-            this.lbCursos.ItemHeight = 15;
-            this.lbCursos.Location = new System.Drawing.Point(634, 61);
-            this.lbCursos.Name = "lbCursos";
-            this.lbCursos.Size = new System.Drawing.Size(355, 289);
-            this.lbCursos.TabIndex = 23;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(634, 34);
+            this.label1.Location = new System.Drawing.Point(584, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 15);
             this.label1.TabIndex = 24;
             this.label1.Text = "CURSOS REGISTRADOS";
             // 
-            // comboBox1
+            // cbCurso
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbCurso.FormattingEnabled = true;
+            this.cbCurso.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
             "4"});
-            this.comboBox1.Location = new System.Drawing.Point(259, 107);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(32, 23);
-            this.comboBox1.TabIndex = 25;
+            this.cbCurso.Location = new System.Drawing.Point(158, 108);
+            this.cbCurso.Name = "cbCurso";
+            this.cbCurso.Size = new System.Drawing.Size(32, 23);
+            this.cbCurso.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(235, 107);
+            this.label2.Location = new System.Drawing.Point(134, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(18, 20);
             this.label2.TabIndex = 26;
@@ -280,16 +274,16 @@ namespace FormsSysacadApp
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(298, 111);
+            this.label3.Location = new System.Drawing.Point(197, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 15);
             this.label3.TabIndex = 27;
             this.label3.Text = "A";
             // 
-            // comboBox2
+            // cbAsignatura
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbAsignatura.FormattingEnabled = true;
+            this.cbAsignatura.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -300,10 +294,41 @@ namespace FormsSysacadApp
             "7",
             "8",
             "9"});
-            this.comboBox2.Location = new System.Drawing.Point(321, 107);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(32, 23);
-            this.comboBox2.TabIndex = 28;
+            this.cbAsignatura.Location = new System.Drawing.Point(220, 108);
+            this.cbAsignatura.Name = "cbAsignatura";
+            this.cbAsignatura.Size = new System.Drawing.Size(32, 23);
+            this.cbAsignatura.TabIndex = 3;
+            this.cbAsignatura.SelectedIndexChanged += new System.EventHandler(this.cbAsignatura_SelectedIndexChanged);
+            // 
+            // dgCursos
+            // 
+            this.dgCursos.AllowUserToAddRows = false;
+            this.dgCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Nombre,
+            this.Turno});
+            this.dgCursos.Location = new System.Drawing.Point(584, 61);
+            this.dgCursos.Name = "dgCursos";
+            this.dgCursos.RowTemplate.Height = 25;
+            this.dgCursos.Size = new System.Drawing.Size(407, 246);
+            this.dgCursos.TabIndex = 29;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Turno
+            // 
+            this.Turno.HeaderText = "Turno";
+            this.Turno.Name = "Turno";
             // 
             // FormAddCurso
             // 
@@ -311,14 +336,14 @@ namespace FormsSysacadApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1028, 389);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.dgCursos);
+            this.Controls.Add(this.cbAsignatura);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbCurso);
             this.Controls.Add(this.cbDiasCursada);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblHorarios);
-            this.Controls.Add(this.lbCursos);
             this.Controls.Add(this.lblDiasCursada);
             this.Controls.Add(this.listHorarios);
             this.Controls.Add(this.cbTurnos);
@@ -342,6 +367,7 @@ namespace FormsSysacadApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NEW SYSACAD - AGREGAR CURSO";
             this.Load += new System.EventHandler(this.FormAddCurso_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgCursos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,11 +393,14 @@ namespace FormsSysacadApp
         private System.Windows.Forms.Label lblTurno;
         private System.Windows.Forms.ListBox listHorarios;
         private System.Windows.Forms.Label lblHorarios;
-        private System.Windows.Forms.ListBox lbCursos;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbCurso;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbAsignatura;
+        private System.Windows.Forms.DataGridView dgCursos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Turno;
     }
 }

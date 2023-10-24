@@ -23,8 +23,8 @@ namespace FormsSysacadApp
             txtName.LostFocus += (sender, e) => ConvertirAMayusculas(txtName);
             txtSurname.LostFocus += (sender, e) => ConvertirAMayusculas(txtSurname);
             txtEmail.LostFocus += (sender, e) => ConvertirAMayusculas(txtEmail);
-
-
+            txtStreet.LostFocus += (sender, e) => ConvertirAMayusculas(txtStreet);
+            txtCity.LostFocus += (sender, e) => ConvertirAMayusculas(txtCity);
         }
 
         public Administrador admnistradorLogueado { get; set; }
@@ -39,7 +39,6 @@ namespace FormsSysacadApp
         private void txtName_Leave(object sender, EventArgs e)
         {
             txtName.Text.ToUpper();
-            //LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtName.Text), txtName,lblError);
         }
 
         private void txtSurname_KeyDown(object sender, KeyEventArgs e)
@@ -61,12 +60,6 @@ namespace FormsSysacadApp
             {
                 txtStreet.Focus();
             }
-        }
-
-        private void txtDocument_Leave(object sender, EventArgs e)
-        {
-            txtPassProvisional.Text = txtDocument.Text;
-            //LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarNumeros(txtDocument.Text), txtDocument,lblError);
         }
 
         private void txtStreet_KeyDown(object sender, KeyEventArgs e)
@@ -133,19 +126,22 @@ namespace FormsSysacadApp
             bool comprobarTxtEmail = ValidarFormatoEmail();
             bool comprobarTxTelefono = ValidarFormatoTelefono();
 
+            if (comprobartxtNomApellido && comprobarTxtDni && comprobarTxtVacios &&
+                comprobarTxtEmail && comprobarTxTelefono) 
+            {
+                string stringDireccion = $"{txtStreet.Text} {txtNumStreet.Text} {txtDepto.Text}, {txtCity.Text}";
 
-            string stringDireccion = $"{txtStreet.Text} {txtNumStreet.Text} {txtDepto.Text}, {txtCity.Text}";
-                       
-            Alumno estudiante = new Alumno(txtName.Text, txtSurname.Text, txtDocument.Text, "0", "0", checkChangePass.Checked,stringDireccion, txtEmail.Text, txtPhone.Text);
-            if (Validador.ValidarExistenciaDeRegistro(estudiante))
-            {
-                ConfirmarDatos(estudiante);
-            }
-            else
-            {
-                DialogResult resultado = MessageBox.Show($"El registro Ya existe, desea intentar cargar nuevamente?", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtDocument.Focus();
-            }                  
+                Alumno estudiante = new Alumno(txtName.Text, txtSurname.Text, txtDocument.Text, "0", "0", checkChangePass.Checked, stringDireccion, txtEmail.Text, txtPhone.Text);
+                if (Validador.ValidarExistenciaDeRegistro(estudiante))
+                {
+                    ConfirmarDatos(estudiante);
+                }
+                else
+                {
+                    DialogResult resultado = MessageBox.Show($"El registro Ya existe, desea intentar cargar nuevamente?", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtDocument.Focus();
+                }
+            }              
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -188,12 +184,12 @@ namespace FormsSysacadApp
                     formularioAdmin.Show();                    
                     this.Close();
                 }
-
                 //infoEstudiante.EnviarCredenciales(infoEstudiante);                
             }
             else
             {
                 txtName.Focus();
+                txtName.SelectAll();
             }
 
         }
@@ -212,7 +208,7 @@ namespace FormsSysacadApp
         private bool ValidacionTextdni(TextBox txtDni) 
         {
             bool validacionOk = true;
-            validacionOk=LogicaDeFormulario.ValidarDni(txtDni);
+            validacionOk=LogicaDeFormulario.ValidarDni(txtDni,lblError);
             return validacionOk;
         }
 
@@ -242,35 +238,16 @@ namespace FormsSysacadApp
             return validacionOk;
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            int PosX =  txtPhone.Location.X;
-            int PosY = txtPhone.Location.Y+25;
-            
-            lblError.Location = new System.Drawing.Point(PosX, PosY);
-            lblError.Visible = true;
-            
-        }
-
-        private void FormRegStudent_Load(object sender, EventArgs e)
-        {
-            txtName.Focus();
-        }
-
-        //private void txtName_TextChanged(object sender, EventArgs e)
-        //{
-        //    TextBox textBox = (TextBox)sender;
-        //    textBox.Text = textBox.Text.ToUpper();
-        //    textBox.SelectionStart = textBox.Text.Length;
-        //}
-
         private void ConvertirAMayusculas(TextBox textBox)
         {
             textBox.Text = textBox.Text.ToUpper();
             textBox.SelectionStart = textBox.Text.Length; // Coloca el cursor al final del texto
         }
 
+        private void txtDocument_Leave(object sender, EventArgs e)
+        {
+            txtPassProvisional.Text = txtDocument.Text;
+        }
     }
 
 }

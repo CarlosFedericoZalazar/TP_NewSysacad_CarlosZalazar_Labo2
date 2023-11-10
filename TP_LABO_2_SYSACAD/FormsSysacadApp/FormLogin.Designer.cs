@@ -39,21 +39,24 @@ namespace FormsSysacadApp
             this.btnLogAdmin = new System.Windows.Forms.Button();
             this.btnLogAlumno = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(382, 230);
+            this.buttonAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonAceptar.Font = new System.Drawing.Font("Arial", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.buttonAceptar.Location = new System.Drawing.Point(404, 230);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(181, 49);
             this.buttonAceptar.TabIndex = 1;
             this.buttonAceptar.Text = "ACEPTAR";
-            this.buttonAceptar.UseVisualStyleBackColor = true;
+            this.buttonAceptar.UseVisualStyleBackColor = false;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click_1);
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(370, 51);
+            this.txtUsuario.Location = new System.Drawing.Point(392, 51);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(207, 24);
             this.txtUsuario.TabIndex = 2;
@@ -61,7 +64,7 @@ namespace FormsSysacadApp
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(370, 167);
+            this.txtPass.Location = new System.Drawing.Point(392, 167);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(207, 24);
             this.txtPass.TabIndex = 3;
@@ -73,7 +76,7 @@ namespace FormsSysacadApp
             this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblUsuario.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblUsuario.Location = new System.Drawing.Point(426, 18);
+            this.lblUsuario.Location = new System.Drawing.Point(448, 18);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(89, 25);
             this.lblUsuario.TabIndex = 4;
@@ -84,7 +87,7 @@ namespace FormsSysacadApp
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.lblPassword.Location = new System.Drawing.Point(400, 130);
+            this.lblPassword.Location = new System.Drawing.Point(422, 130);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(145, 25);
             this.lblPassword.TabIndex = 5;
@@ -97,7 +100,7 @@ namespace FormsSysacadApp
             this.lblUserError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblUserError.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblUserError.ForeColor = System.Drawing.Color.Maroon;
-            this.lblUserError.Location = new System.Drawing.Point(417, 78);
+            this.lblUserError.Location = new System.Drawing.Point(439, 78);
             this.lblUserError.Name = "lblUserError";
             this.lblUserError.Size = new System.Drawing.Size(116, 17);
             this.lblUserError.TabIndex = 6;
@@ -126,12 +129,23 @@ namespace FormsSysacadApp
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::FormsSysacadApp.Properties.Resources.imagen_UTN;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(327, 390);
             this.panel1.TabIndex = 10;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(492, 376);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "PRUEBA";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormLogin
             // 
@@ -139,7 +153,10 @@ namespace FormsSysacadApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackgroundImage = global::FormsSysacadApp.Properties.Resources.FONDO_PRUEBA;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(669, 398);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnLogAlumno);
             this.Controls.Add(this.btnLogAdmin);
@@ -156,7 +173,7 @@ namespace FormsSysacadApp
             this.MinimizeBox = false;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NEW SYSACAD";            
+            this.Text = "NEW SYSACAD";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -173,5 +190,6 @@ namespace FormsSysacadApp
         private System.Windows.Forms.Button btnLogAdmin;
         private System.Windows.Forms.Button btnLogAlumno;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }

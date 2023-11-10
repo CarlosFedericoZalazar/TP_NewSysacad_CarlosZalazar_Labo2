@@ -29,6 +29,7 @@ namespace BibliotecaClasesTP
 
         public void AltaCurso(Curso nuevoRegistro)
         {
+            // LOGICA PARA AGREGAR A LA BASE DE DATOS
             GestorDeClases.AltaRegistro(nuevoRegistro);
         }
 

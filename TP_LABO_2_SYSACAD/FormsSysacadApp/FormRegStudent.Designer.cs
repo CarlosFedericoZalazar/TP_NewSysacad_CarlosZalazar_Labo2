@@ -61,6 +61,7 @@ namespace FormsSysacadApp
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
+            this.lblNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNombre.Location = new System.Drawing.Point(37, 23);
             this.lblNombre.Name = "lblNombre";
@@ -71,6 +72,7 @@ namespace FormsSysacadApp
             // lblDocumento
             // 
             this.lblDocumento.AutoSize = true;
+            this.lblDocumento.BackColor = System.Drawing.Color.Transparent;
             this.lblDocumento.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDocumento.Location = new System.Drawing.Point(38, 91);
             this.lblDocumento.Name = "lblDocumento";
@@ -81,6 +83,7 @@ namespace FormsSysacadApp
             // lblStreet
             // 
             this.lblStreet.AutoSize = true;
+            this.lblStreet.BackColor = System.Drawing.Color.Transparent;
             this.lblStreet.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblStreet.Location = new System.Drawing.Point(41, 185);
             this.lblStreet.Name = "lblStreet";
@@ -91,6 +94,7 @@ namespace FormsSysacadApp
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
+            this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEmail.Location = new System.Drawing.Point(526, 23);
             this.lblEmail.Name = "lblEmail";
@@ -101,6 +105,7 @@ namespace FormsSysacadApp
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
+            this.lblApellido.BackColor = System.Drawing.Color.Transparent;
             this.lblApellido.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblApellido.Location = new System.Drawing.Point(246, 23);
             this.lblApellido.Name = "lblApellido";
@@ -111,6 +116,7 @@ namespace FormsSysacadApp
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(526, 91);
             this.label1.Name = "label1";
@@ -181,6 +187,7 @@ namespace FormsSysacadApp
             // lblNumStreet
             // 
             this.lblNumStreet.AutoSize = true;
+            this.lblNumStreet.BackColor = System.Drawing.Color.Transparent;
             this.lblNumStreet.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNumStreet.Location = new System.Drawing.Point(258, 185);
             this.lblNumStreet.Name = "lblNumStreet";
@@ -210,6 +217,7 @@ namespace FormsSysacadApp
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(257, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 15);
@@ -228,6 +236,7 @@ namespace FormsSysacadApp
             // checkChangePass
             // 
             this.checkChangePass.AutoSize = true;
+            this.checkChangePass.BackColor = System.Drawing.Color.Transparent;
             this.checkChangePass.Checked = true;
             this.checkChangePass.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkChangePass.Location = new System.Drawing.Point(258, 143);
@@ -235,11 +244,12 @@ namespace FormsSysacadApp
             this.checkChangePass.Size = new System.Drawing.Size(191, 19);
             this.checkChangePass.TabIndex = 17;
             this.checkChangePass.Text = "Habilitar cambio de contraseña";
-            this.checkChangePass.UseVisualStyleBackColor = true;
+            this.checkChangePass.UseVisualStyleBackColor = false;
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
             this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Location = new System.Drawing.Point(526, 147);
             this.lblError.Name = "lblError";
@@ -251,6 +261,7 @@ namespace FormsSysacadApp
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(373, 185);
             this.label3.Name = "label3";
@@ -261,6 +272,7 @@ namespace FormsSysacadApp
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(41, 248);
             this.label2.Name = "label2";
@@ -299,7 +311,7 @@ namespace FormsSysacadApp
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(150)))));
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.lblInfoEstudiante);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(481, 197);
@@ -324,6 +336,8 @@ namespace FormsSysacadApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackgroundImage = global::FormsSysacadApp.Properties.Resources.FONDO_PRUEBA;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(807, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtPhone);

@@ -20,7 +20,6 @@ namespace BibliotecaClasesTP
         public static ClaseMaestra Abrir()
         {
             ClaseMaestra listaDatos = new ClaseMaestra();
-
             try
             {
                 string path = $"{_directorio}\\materias-1.json";
@@ -43,18 +42,54 @@ namespace BibliotecaClasesTP
         }
 
         public static void Guardar(ClaseMaestra datos)
-        {
-            
+        {            
             string path = $"{_directorio}\\materias-1.json";
-                using (var writer = new StreamWriter(path)) //Combine(file))) 
-                {
-                    var option = new JsonSerializerOptions();
-                    option.WriteIndented = true;
+            using (var writer = new StreamWriter(path)) //Combine(file))) 
+            {
+                var option = new JsonSerializerOptions();
+                option.WriteIndented = true;
+                var json = JsonSerializer.Serialize(datos, option);
+                writer.Write(json);
+            }
+        }
 
-                    var json = JsonSerializer.Serialize(datos, option);
-                    writer.Write(json);
+        //------------------------------------------------------------------------------
+
+        public static T Abrir<T>(string fileName)
+        {
+
+            T listaDatos = default(T);
+            try
+            {
+                string path = $"{_directorio}/{fileName}.json";
+                using var sr = new StreamReader($"{_directorio}/{fileName}.json");
+                using (var reader = new StreamReader(path))
+                {
+                    var json = reader.ReadToEnd();
+                    var datos = JsonSerializer.Deserialize<T>(json);
+                    if (datos != null)
+                    {
+                        listaDatos = datos;                        
+                    }
                 }
-            
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("Excepción capturada: " + ex.Message);
+            }
+            return listaDatos;
+        }
+
+        public static void Guardar<T>(T item, string fileName)
+        {
+            string path = $"{_directorio}\\{fileName}.json";
+            using (var writer = new StreamWriter(path)) //Combine(file))) 
+            {
+                var option = new JsonSerializerOptions();
+                option.WriteIndented = true;
+                var json = JsonSerializer.Serialize(item, option);
+                writer.Write(json);
+            }
         }
 
         public static string DirectorioArchivo() // volver a cambia a private!

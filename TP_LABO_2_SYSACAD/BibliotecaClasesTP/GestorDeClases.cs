@@ -72,6 +72,7 @@ namespace BibliotecaClasesTP
             /// <param name="pass">LITERAL A HASHEAR</param>
             /// <returns>RETURN STRING DEL HASH GENERADO</returns>
             public static string GenerarHash(string pass) => BCrypt.Net.BCrypt.EnhancedHashPassword(pass, 8);
+            
             /// <summary>
             /// COMPARA UN PASS LITERAL CON UN HASH
             /// </summary>

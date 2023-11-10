@@ -16,64 +16,66 @@ namespace FormsSysacadApp
         List<string> cursosInscriptoAlumno = new List<string>();
         List<Curso> listaCursos = GestorDeClases.ExtraerListaCursos();
 
-        public FormInscripCursosAlum()
+        
+        BindingList<Curso> cursosInscriptos = new BindingList<Curso>();
+
+
+        FormAlumno _formularioAlumno;
+        public FormInscripCursosAlum(FormAlumno formularioAlumno)
         {
             InitializeComponent();
             cbTurnos.SelectedIndex = 0;
             btnInscribirse.Enabled = false;
+            _formularioAlumno = formularioAlumno;
+            dgCursoInscripto.DataSource = cursosInscriptos;
         }
 
         public Alumno alumnoLogueado { get; set; }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LogicaDeFormulario.ActualizarContenidoListBoxes(listMaterias, cbTurnos.SelectedItem.ToString());
-            listMaterias.Enabled = true;            
+            //listMaterias.Enabled = true;            
         }
 
         private void FormInscripCursosAlum_Load(object sender, EventArgs e)
         {
-            cursosInscriptoAlumno = alumnoLogueado.ListaMaterias;            
-            if (listaCursos.Count() == 0) 
+            LogicaForm.CargarDataGridViewCursos(dgCursos);
+
+            dgCursos.Columns[7].Visible = true;
+
+            foreach (int columnIndex in new[] { 2, 3, 4, 5, 6, 7 })
             {
-                MessageBox.Show("No hay Cursos Disponibles", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.Close();
+                dgCursoInscripto.Columns[columnIndex].Visible = false;
             }
-            CargarListasCursos(listCursosAlumno, cursosInscriptoAlumno);
 
-            CargarListasCursos(listMaterias, listaCursos);
-
-            cbTurnos.SelectedIndex = 0;
-            listMaterias.Enabled = false;
-            btnInscribirse.Enabled = false;            
         }
 
         private void btnInscribirse_Click(object sender, EventArgs e)
         {
-            var cursoSeleccionado = (Curso)listMaterias.SelectedItem;
+            //var cursoSeleccionado = (Curso)listMaterias.SelectedItem;
 
-            bool cursoYaInscripto = Validador.ValidarCoincidenciaCodigoCurso(cursosInscriptoAlumno, cursoSeleccionado.CodigoCurso);
-            if (cursoYaInscripto)
-            {
-                MessageBox.Show("EL REGISTRO YA EXISTE");
-            }
-            else
-            {
-                cursosInscriptoAlumno.Add(cursoSeleccionado.CodigoCurso);
-                CargarListasCursos(listCursosAlumno, cursosInscriptoAlumno);
-            }
+            //bool cursoYaInscripto = Validador.ValidarCoincidenciaCodigoCurso(cursosInscriptoAlumno, cursoSeleccionado.CodigoCurso);
+            //if (cursoYaInscripto)
+            //{
+            //    MessageBox.Show("EL REGISTRO YA EXISTE");
+            //}
+            //else
+            //{
+            //    //cursosInscriptoAlumno.Add(cursoSeleccionado.CodigoCurso);
+            //    CargarListasCursos(listCursosAlumno, cursosInscriptoAlumno);
+            //}
         }
 
         private void listMaterias_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             btnInscribirse.Enabled = true;
-            Curso cursoSeleccioando = (Curso)listMaterias.SelectedItem;
-            txtDescripcion.Text = cursoSeleccioando.Descripcion;
+            //Curso cursoSeleccioando = (Curso)listMaterias.SelectedItem;
+            //txtDescripcion.Text = cursoSeleccioando.Descripcion;
         }
 
         private void CargarListasCursos(ListBox cajaList, List<Curso>listaCursos)
         {
-            LogicaDeFormulario.ActualizarContenidoListBoxes(cajaList, cbTurnos.SelectedItem.ToString());
+            LogicaForm.ActualizarContenidoListBoxes(cajaList, cbTurnos.SelectedItem.ToString());
         }
 
         private void CargarListasCursos(ListBox cajaList, List<string> cursosInscriptoAlumno)
@@ -99,6 +101,16 @@ namespace FormsSysacadApp
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dgCursos.SelectedRows.Count > 0)
+            {
+                Curso cursoSeleccionado = (Curso)dgCursos.CurrentRow.DataBoundItem;
+                //Curso prueba = new Curso("C8A8","Matematica","sumas",2,"TARDE","LUNEAS","");
+                cursosInscriptos.Add(cursoSeleccionado);
+            }
         }
     }
 }

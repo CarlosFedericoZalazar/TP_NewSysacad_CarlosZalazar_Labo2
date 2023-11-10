@@ -64,7 +64,7 @@ namespace FormsSysacadApp
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(21, 333);
+            this.btnExit.Location = new System.Drawing.Point(37, 365);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(90, 42);
             this.btnExit.TabIndex = 3;
@@ -109,6 +109,8 @@ namespace FormsSysacadApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackgroundImage = global::FormsSysacadApp.Properties.Resources.FONDO_PRUEBA;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(619, 432);
             this.Controls.Add(this.btnPago);
             this.Controls.Add(this.button1);

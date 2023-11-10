@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BibliotecaClasesTP;
 
 
+
 namespace FormsSysacadApp
 {
     public partial class FormAdminCursos : Form
@@ -19,11 +20,6 @@ namespace FormsSysacadApp
         {
             InitializeComponent();
             _formularioAdministrador = formularioAdministrador;
-
-            foreach (DataGridViewColumn column in dgCursos.Columns)
-            {
-                column.Resizable = DataGridViewTriState.False;
-            }
         }
 
         public Administrador admnistradorLogueado { get; set; }
@@ -37,7 +33,7 @@ namespace FormsSysacadApp
 
         private void FormAdminCursos_Load(object sender, EventArgs e)
         {
-            CargaCursosEnLista();
+            LogicaForm.CargarDataGridViewCursos(dgCursos);
             lblAdminLoged.Text = $"Admin: {admnistradorLogueado.Apellido}, {admnistradorLogueado.Nombre}";
         }
 
@@ -46,7 +42,9 @@ namespace FormsSysacadApp
             if (dgCursos.SelectedRows.Count > 0)
             {
                 FormEditCurso formularioEditorCurso = new FormEditCurso();
-                formularioEditorCurso.infoCurso = ItemCursoSeleccionadoDatGrid();
+                Curso cursoSeleccionado = (Curso)dgCursos.CurrentRow.DataBoundItem;
+                Console.WriteLine(cursoSeleccionado.DiasCursada);
+                formularioEditorCurso.infoCurso = cursoSeleccionado;
                 formularioEditorCurso.admnistradorLogueado = admnistradorLogueado;
                 formularioEditorCurso.ShowDialog();
             }        
@@ -56,21 +54,20 @@ namespace FormsSysacadApp
             }
         }
 
-
         private void btnDeleteCurso_Click(object sender, EventArgs e)
         {
             if (dgCursos.SelectedRows.Count > 0)
-            {               
-
+            {
                 DialogResult resultado = MessageBox.Show("¿Desea eliminar curso seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
-                    Curso cursoBorrar = ItemCursoSeleccionadoDatGrid();
-                    admnistradorLogueado.EliminarCurso(cursoBorrar);
-                    CargaCursosEnLista();
+                    Curso cursoSeleccionado = (Curso)dgCursos.CurrentRow.DataBoundItem;
+                    DataBase.DataBaseOpDelete<Curso>("CURSOS", "ID_CURSO", cursoSeleccionado.CodigoCurso);
+                    LogicaForm.CargarDataGridViewCursos(dgCursos);
                 }                
             }
         }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             _formularioAdministrador.Show();
@@ -79,22 +76,36 @@ namespace FormsSysacadApp
 
         private void FormAdminCursos_Activated(object sender, EventArgs e)
         {
-            CargaCursosEnLista();
+            //CargaCursosEnLista();
         }
 
         private void CargaCursosEnLista() 
         {   
-            LogicaDeFormulario.ActualizarContenidoDataGridView(dgCursos);
+            LogicaForm.CargarDataGridViewCursos(dgCursos);
         }
 
 
-        // EVALUAR SI LO METEMOS EN LA LOGICA DEL FORMULARIO
-        private Curso ItemCursoSeleccionadoDatGrid() 
+        private void CargarDataGridViewCursos() 
         {
-            DataGridViewRow filaSeleccionada = dgCursos.SelectedRows[0];
-            string valorCeldaSeleccionada = filaSeleccionada.Cells["Column2"].Value.ToString();
-            
-            return GestorDeClases.AccederCursoPorCodigo(valorCeldaSeleccionada);
+            dgCursos.DataSource = DataBase.DataBaseOpRead<Curso>(DataBase.MapCurso, Query.QuerySelectCurso);
+            dgCursos.Refresh();
+
+            foreach (DataGridViewColumn column in dgCursos.Columns)
+            {
+                column.Resizable = DataGridViewTriState.False;
+            }
+
+            foreach (int columnIndex in new[] {2, 4, 5, 6, 7 })
+            {
+                dgCursos.Columns[columnIndex].Visible = false;
+            }
+
+        }
+
+        private void dgCursos_Click(object sender, EventArgs e)
+        {
+            Curso cursoSeleccionado = (Curso)dgCursos.CurrentRow.DataBoundItem;
+            txtDescripCurso.Text = cursoSeleccionado.Descripcion;
         }
     }
 }

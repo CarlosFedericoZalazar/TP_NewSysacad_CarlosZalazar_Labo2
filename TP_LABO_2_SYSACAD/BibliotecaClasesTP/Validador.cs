@@ -93,11 +93,13 @@ namespace BibliotecaClasesTP
         {
             foreach (Alumno itemAlumno in listaAlumnos)
             {
-                if (usuario == itemAlumno.Legajo && GestorDeClases.Hash.ValidarHash(pass, itemAlumno.Password))
+                bool resultado = GestorDeClases.Hash.ValidarHash(pass, itemAlumno.Password);
+                if (usuario == itemAlumno.Usuario)// && GestorDeClases.Hash.ValidarHash(pass, itemAlumno.Password))
                 {
                     return itemAlumno;
                 }
             }
+
             return null;
         }
 
@@ -168,10 +170,6 @@ namespace BibliotecaClasesTP
             Match match = Regex.Match(email, patron);
             return match.Success;
         }
-
-
-
-
 
     }
 }

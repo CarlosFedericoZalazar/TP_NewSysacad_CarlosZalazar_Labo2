@@ -120,28 +120,34 @@ namespace FormsSysacadApp
         }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            bool comprobartxtNomApellido = ValidacionTextNombreApellido();
-            bool comprobarTxtDni = ValidacionTextdni(txtDocument);
-            bool comprobarTxtVacios = ValidarTextosVacios();
-            bool comprobarTxtEmail = ValidarFormatoEmail();
-            bool comprobarTxTelefono = ValidarFormatoTelefono();
+            //    bool comprobartxtNomApellido = ValidacionTextNombreApellido();
+            //    bool comprobarTxtDni = ValidacionTextdni(txtDocument);
+            //    bool comprobarTxtVacios = ValidarTextosVacios();
+            //    bool comprobarTxtEmail = ValidarFormatoEmail();
+            //    bool comprobarTxTelefono = ValidarFormatoTelefono();
 
-            if (comprobartxtNomApellido && comprobarTxtDni && comprobarTxtVacios &&
-                comprobarTxtEmail && comprobarTxTelefono) 
-            {
-                string stringDireccion = $"{txtStreet.Text} {txtNumStreet.Text} {txtDepto.Text}, {txtCity.Text}";
+            //    if (comprobartxtNomApellido && comprobarTxtDni && comprobarTxtVacios &&
+            //        comprobarTxtEmail && comprobarTxTelefono)
+            //    {
+            //        string stringDireccion = $"{txtStreet.Text} {txtNumStreet.Text} {txtDepto.Text}, {txtCity.Text}";
 
-                Alumno estudiante = new Alumno(txtName.Text, txtSurname.Text, txtDocument.Text, "0", "0", checkChangePass.Checked, stringDireccion, txtEmail.Text, txtPhone.Text);
-                if (Validador.ValidarExistenciaDeRegistro(estudiante))
-                {
-                    ConfirmarDatos(estudiante);
-                }
-                else
-                {
-                    DialogResult resultado = MessageBox.Show($"El registro Ya existe, desea intentar cargar nuevamente?", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtDocument.Focus();
-                }
-            }              
+            //        Alumno estudiante = new Alumno(txtName.Text, txtSurname.Text, txtDocument.Text, "0", stringDireccion, txtEmail.Text, txtPhone.Text, checkChangePass.Checked);
+            //        if (Validador.ValidarExistenciaDeRegistro(estudiante))
+            //        {
+            //            DataBase.DataBaseOpGuardar(estudiante);
+            //            //ConfirmarDatos(estudiante);
+            //        }
+            //        else
+            //        {
+            //            DialogResult resultado = MessageBox.Show($"El registro ya existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //            txtDocument.SelectAll();
+            //            txtDocument.Focus();
+            //        }
+            //    }
+            var hash = GestorDeClases.Hash.GenerarHash("1234");
+            Alumno estudiante = new Alumno("Camila", "Holmes", "30528991", hash, "Matheu 50, R. de Escalada", "prueba4@hotmail.com", "1593873873", false);
+            DataBase.DataBaseOpGuardar(estudiante);
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -167,7 +173,7 @@ namespace FormsSysacadApp
             {
                 estudiante.Password = GestorDeClases.Hash.GenerarHash(estudiante.Dni);
 
-                estudiante.Legajo = admnistradorLogueado.AsignarLegajoAlumno();
+                //estudiante.Legajo = admnistradorLogueado.AsignarLegajoAlumno();
                 admnistradorLogueado.AltaEstudiante(estudiante);
 
                 resultado = MessageBox.Show($"Desea cargar otro registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -201,14 +207,14 @@ namespace FormsSysacadApp
             List<TextBox> listaNombreApellido = new List<TextBox>();
             listaNombreApellido.Add(txtName);
             listaNombreApellido.Add(txtSurname);            
-            validacionOk = LogicaDeFormulario.ValidarNombreApellido(listaNombreApellido,lblError);
+            validacionOk = LogicaForm.ValidarNombreApellido(listaNombreApellido,lblError);
             return validacionOk;
         }
 
         private bool ValidacionTextdni(TextBox txtDni) 
         {
             bool validacionOk = true;
-            validacionOk=LogicaDeFormulario.ValidarDni(txtDni,lblError);
+            validacionOk=LogicaForm.ValidarDni(txtDni,lblError);
             return validacionOk;
         }
 
@@ -220,14 +226,14 @@ namespace FormsSysacadApp
             listaCajasTexto.Add(txtNumStreet);
             listaCajasTexto.Add(txtCity);
             listaCajasTexto.Add(txtPhone);
-            validacionOk = LogicaDeFormulario.ValidarTextosVacios(listaCajasTexto, lblError);
+            validacionOk = LogicaForm.ValidarTextosVacios(listaCajasTexto, lblError);
             return validacionOk;
         }
 
         private bool ValidarFormatoEmail() 
         {
             bool validacionOk = false;
-            validacionOk = LogicaDeFormulario.ValidarTextoMail(txtEmail,lblError);
+            validacionOk = LogicaForm.ValidarTextoMail(txtEmail,lblError);
             return validacionOk;        
         }
 

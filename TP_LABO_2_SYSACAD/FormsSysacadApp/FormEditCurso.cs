@@ -18,6 +18,11 @@ namespace FormsSysacadApp
         public FormEditCurso()
         {
             InitializeComponent();
+            cbDiasCursada.DataSource = Enum.GetValues(typeof(Horarios.Dias));
+            cbTurnos.DataSource = Enum.GetValues(typeof(Horarios.Turno));
+            cbDiasCursada.DataSource = Enum.GetValues(typeof(Horarios.Dias));
+
+            //cbDiasCursada.Text = infoCurso.DiasCursada;
         }
 
         public Curso infoCurso { get; set; }
@@ -33,7 +38,8 @@ namespace FormsSysacadApp
                 txtCantAlumCurso.Text = infoCurso.CantidadAlumnos.ToString();
                 cbTurnos.Text = infoCurso.TurnoCursada;
                 cbDiasCursada.Text = infoCurso.DiasCursada;
-                listHorarios.Items.Add(infoCurso.HorarioCursada);
+                int indice = listHorarios.Items.IndexOf(infoCurso.HorarioCursada);
+                listHorarios.SelectedIndex = indice;
             }
             catch (NullReferenceException)
             {
@@ -53,7 +59,7 @@ namespace FormsSysacadApp
         private void txtNombreCurso_Leave(object sender, EventArgs e)
         {
             txtNombreCurso.Text = txtNombreCurso.Text.ToUpper();
-            LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtNombreCurso.Text), txtNombreCurso, lblError);
+            //LogicaForm.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtNombreCurso.Text), txtNombreCurso, lblError);
         }
 
         private void txtCodigoCurso_KeyDown(object sender, KeyEventArgs e)
@@ -67,7 +73,7 @@ namespace FormsSysacadApp
         private void txtCodigoCurso_Leave(object sender, EventArgs e)
         {
             txtCodigoCurso.Text = txtCodigoCurso.Text.ToUpper();
-            LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarCurso(txtCodigoCurso.Text), txtCodigoCurso, lblError);
+            LogicaForm.ComportamientoCajaDeTexto(Validador.ValidarCurso(txtCodigoCurso.Text), txtCodigoCurso, lblError);
         }
 
         private void txtDescripCurso_KeyDown(object sender, KeyEventArgs e)
@@ -80,7 +86,7 @@ namespace FormsSysacadApp
         private void txtDescripCurso_Leave(object sender, EventArgs e)
         {
             txtDescripCurso.Text = txtDescripCurso.Text.ToUpper();
-            LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtDescripCurso.Text), txtDescripCurso, lblError);
+            LogicaForm.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtDescripCurso.Text), txtDescripCurso, lblError);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -90,7 +96,7 @@ namespace FormsSysacadApp
                 
             if (resultado == DialogResult.Yes)
             {   
-                var cursoModificado = new Curso(txtNombreCurso.Text, txtCodigoCurso.Text, txtDescripCurso.Text, int.Parse(txtCantAlumCurso.Text));
+                var cursoModificado = new Curso(txtCodigoCurso.Text, txtNombreCurso.Text, txtDescripCurso.Text, int.Parse(txtCantAlumCurso.Text));
 
                 if (cbDiasCursada.SelectedIndex == -1)
                 {
@@ -119,7 +125,7 @@ namespace FormsSysacadApp
                     cursoModificado.HorarioCursada = listHorarios.SelectedItem.ToString();
                 }
 
-                    // VER ESTE ERROR!
+                // VER ESTE ERROR!
                 //    try
                 //{
                 //    cursoModificado.HorarioCursada = listHorarios.SelectedItem.ToString();
@@ -129,8 +135,8 @@ namespace FormsSysacadApp
                 //    MessageBox.Show("Debe seleccionar horario de Cursada", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //    listHorarios.Focus();
                 //}
-
-                admnistradorLogueado.ModificarCurso(infoCurso, cursoModificado);
+                DataBase.ModificarCurso(cursoModificado, infoCurso.CodigoCurso);
+                //admnistradorLogueado.ModificarCurso(infoCurso, cursoModificado);
 
                 this.Close();
             }
@@ -151,7 +157,7 @@ namespace FormsSysacadApp
         private void txtCantAlumCurso_Leave(object sender, EventArgs e)
         {
             var numeroOk = Validador.ValidarCantidadAlumnos(txtCantAlumCurso.Text, maximaCantidadAlumnoCurso);
-            LogicaDeFormulario.ComportamientoCajaDeTexto(numeroOk, txtCantAlumCurso, lblError);
+            LogicaForm.ComportamientoCajaDeTexto(numeroOk, txtCantAlumCurso, lblError);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -165,7 +171,7 @@ namespace FormsSysacadApp
             string turno = cbTurnos.SelectedItem.ToString();
             
 
-            LogicaDeFormulario.SeleccionHorarioPorTurno(turno, listHorarios);
+            LogicaForm.SeleccionHorarioPorTurno(turno, listHorarios);
         }
 
     }

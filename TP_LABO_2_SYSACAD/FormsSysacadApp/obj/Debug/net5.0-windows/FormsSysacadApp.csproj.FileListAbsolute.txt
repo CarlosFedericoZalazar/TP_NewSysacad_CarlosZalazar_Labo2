@@ -94,3 +94,9 @@ C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACA
 C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\FormsSysacadApp\obj\Debug\net5.0-windows\ref\FormsSysacadApp.dll
 C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\FormsSysacadApp\obj\Debug\net5.0-windows\FormsSysacadApp.pdb
 C:\Users\Usuario\Source\Repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\FormsSysacadApp\obj\Debug\net5.0-windows\FormsSysacadApp.genruntimeconfig.cache
+C:\Users\Usuario\source\repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\FormsSysacadApp\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+C:\Users\Usuario\source\repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\FormsSysacadApp\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Usuario\source\repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\FormsSysacadApp\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Usuario\source\repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\FormsSysacadApp\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Usuario\source\repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\FormsSysacadApp\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Usuario\source\repos\TP_NewSysacad_CarlosZalazar_Labo2\TP_LABO_2_SYSACAD\FormsSysacadApp\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

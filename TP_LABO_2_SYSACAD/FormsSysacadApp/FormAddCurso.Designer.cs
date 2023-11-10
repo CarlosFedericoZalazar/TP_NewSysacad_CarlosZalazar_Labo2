@@ -53,15 +53,13 @@ namespace FormsSysacadApp
             this.label3 = new System.Windows.Forms.Label();
             this.cbAsignatura = new System.Windows.Forms.ComboBox();
             this.dgCursos = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Turno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgCursos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombreCurso
             // 
             this.lblNombreCurso.AutoSize = true;
+            this.lblNombreCurso.BackColor = System.Drawing.Color.Transparent;
             this.lblNombreCurso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNombreCurso.Location = new System.Drawing.Point(22, 34);
             this.lblNombreCurso.Name = "lblNombreCurso";
@@ -81,6 +79,7 @@ namespace FormsSysacadApp
             // lblCodigoCurso
             // 
             this.lblCodigoCurso.AutoSize = true;
+            this.lblCodigoCurso.BackColor = System.Drawing.Color.Transparent;
             this.lblCodigoCurso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCodigoCurso.Location = new System.Drawing.Point(22, 107);
             this.lblCodigoCurso.Name = "lblCodigoCurso";
@@ -90,15 +89,18 @@ namespace FormsSysacadApp
             // 
             // txtCodCurso
             // 
-            this.txtCodCurso.Location = new System.Drawing.Point(290, 111);
+            this.txtCodCurso.Enabled = false;
+            this.txtCodCurso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtCodCurso.Location = new System.Drawing.Point(301, 111);
             this.txtCodCurso.Name = "txtCodCurso";
             this.txtCodCurso.ReadOnly = true;
-            this.txtCodCurso.Size = new System.Drawing.Size(63, 23);
+            this.txtCodCurso.Size = new System.Drawing.Size(46, 27);
             this.txtCodCurso.TabIndex = 3;
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDescripcion.Location = new System.Drawing.Point(22, 155);
             this.lblDescripcion.Name = "lblDescripcion";
@@ -109,6 +111,7 @@ namespace FormsSysacadApp
             // lblError
             // 
             this.lblError.AutoSize = true;
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
             this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Location = new System.Drawing.Point(158, 61);
             this.lblError.Name = "lblError";
@@ -120,6 +123,7 @@ namespace FormsSysacadApp
             // lblformato
             // 
             this.lblformato.AutoSize = true;
+            this.lblformato.BackColor = System.Drawing.Color.Transparent;
             this.lblformato.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblformato.Location = new System.Drawing.Point(281, 95);
             this.lblformato.Name = "lblformato";
@@ -129,37 +133,42 @@ namespace FormsSysacadApp
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(400, 331);
+            this.btnAceptar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAceptar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAceptar.Location = new System.Drawing.Point(401, 466);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(154, 37);
             this.btnAceptar.TabIndex = 9;
             this.btnAceptar.Text = "ACEPTAR";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(210, 331);
+            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.Location = new System.Drawing.Point(211, 466);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(154, 37);
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtDescription
             // 
+            this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDescription.Location = new System.Drawing.Point(22, 187);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(331, 79);
+            this.txtDescription.Size = new System.Drawing.Size(331, 67);
             this.txtDescription.TabIndex = 4;
             this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescription_KeyDown);
             this.txtDescription.Leave += new System.EventHandler(this.txtDescription_Leave);
             // 
             // txtCantidadAlumnos
             // 
-            this.txtCantidadAlumnos.Location = new System.Drawing.Point(183, 287);
+            this.txtCantidadAlumnos.Location = new System.Drawing.Point(180, 272);
             this.txtCantidadAlumnos.Name = "txtCantidadAlumnos";
             this.txtCantidadAlumnos.Size = new System.Drawing.Size(45, 23);
             this.txtCantidadAlumnos.TabIndex = 5;
@@ -169,8 +178,9 @@ namespace FormsSysacadApp
             // lblCantAlumClase
             // 
             this.lblCantAlumClase.AutoSize = true;
+            this.lblCantAlumClase.BackColor = System.Drawing.Color.Transparent;
             this.lblCantAlumClase.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCantAlumClase.Location = new System.Drawing.Point(25, 287);
+            this.lblCantAlumClase.Location = new System.Drawing.Point(22, 272);
             this.lblCantAlumClase.Name = "lblCantAlumClase";
             this.lblCantAlumClase.Size = new System.Drawing.Size(152, 20);
             this.lblCantAlumClase.TabIndex = 15;
@@ -180,24 +190,20 @@ namespace FormsSysacadApp
             // 
             this.cbDiasCursada.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbDiasCursada.FormattingEnabled = true;
-            this.cbDiasCursada.Items.AddRange(new object[] {
-            "LUNES",
-            "MARTES",
-            "MIERCOLES",
-            "JUEVES",
-            "VIERNES"});
-            this.cbDiasCursada.Location = new System.Drawing.Point(421, 61);
+            this.cbDiasCursada.Location = new System.Drawing.Point(22, 352);
             this.cbDiasCursada.Name = "cbDiasCursada";
             this.cbDiasCursada.Size = new System.Drawing.Size(121, 28);
             this.cbDiasCursada.TabIndex = 6;
-            this.cbDiasCursada.SelectedIndexChanged += new System.EventHandler(this.cbDiasCursada_SelectedIndexChanged);
+            this.cbDiasCursada.Enter += new System.EventHandler(this.cbDiasCursada_Enter);
             // 
             // lblDiasCursada
             // 
             this.lblDiasCursada.AutoSize = true;
-            this.lblDiasCursada.Location = new System.Drawing.Point(433, 43);
+            this.lblDiasCursada.BackColor = System.Drawing.Color.Transparent;
+            this.lblDiasCursada.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDiasCursada.Location = new System.Drawing.Point(22, 329);
             this.lblDiasCursada.Name = "lblDiasCursada";
-            this.lblDiasCursada.Size = new System.Drawing.Size(91, 15);
+            this.lblDiasCursada.Size = new System.Drawing.Size(116, 20);
             this.lblDiasCursada.TabIndex = 17;
             this.lblDiasCursada.Text = "Dias de Cursada";
             // 
@@ -205,7 +211,7 @@ namespace FormsSysacadApp
             // 
             this.cbTurnos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbTurnos.FormattingEnabled = true;
-            this.cbTurnos.Location = new System.Drawing.Point(421, 122);
+            this.cbTurnos.Location = new System.Drawing.Point(180, 352);
             this.cbTurnos.Name = "cbTurnos";
             this.cbTurnos.Size = new System.Drawing.Size(121, 28);
             this.cbTurnos.TabIndex = 7;
@@ -214,9 +220,11 @@ namespace FormsSysacadApp
             // lblTurno
             // 
             this.lblTurno.AutoSize = true;
-            this.lblTurno.Location = new System.Drawing.Point(461, 104);
+            this.lblTurno.BackColor = System.Drawing.Color.Transparent;
+            this.lblTurno.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTurno.Location = new System.Drawing.Point(178, 329);
             this.lblTurno.Name = "lblTurno";
-            this.lblTurno.Size = new System.Drawing.Size(38, 15);
+            this.lblTurno.Size = new System.Drawing.Size(47, 20);
             this.lblTurno.TabIndex = 19;
             this.lblTurno.Text = "Turno";
             // 
@@ -225,7 +233,7 @@ namespace FormsSysacadApp
             this.listHorarios.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listHorarios.FormattingEnabled = true;
             this.listHorarios.ItemHeight = 20;
-            this.listHorarios.Location = new System.Drawing.Point(438, 181);
+            this.listHorarios.Location = new System.Drawing.Point(341, 352);
             this.listHorarios.Name = "listHorarios";
             this.listHorarios.Size = new System.Drawing.Size(86, 64);
             this.listHorarios.TabIndex = 8;
@@ -233,37 +241,43 @@ namespace FormsSysacadApp
             // lblHorarios
             // 
             this.lblHorarios.AutoSize = true;
-            this.lblHorarios.Location = new System.Drawing.Point(433, 163);
+            this.lblHorarios.BackColor = System.Drawing.Color.Transparent;
+            this.lblHorarios.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHorarios.Location = new System.Drawing.Point(341, 329);
             this.lblHorarios.Name = "lblHorarios";
-            this.lblHorarios.Size = new System.Drawing.Size(101, 15);
+            this.lblHorarios.Size = new System.Drawing.Size(126, 20);
             this.lblHorarios.TabIndex = 21;
             this.lblHorarios.Text = "Horarios Cursada:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(584, 35);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(391, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 15);
+            this.label1.Size = new System.Drawing.Size(164, 20);
             this.label1.TabIndex = 24;
             this.label1.Text = "CURSOS REGISTRADOS";
             // 
             // cbCurso
             // 
+            this.cbCurso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbCurso.FormattingEnabled = true;
             this.cbCurso.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
             "4"});
-            this.cbCurso.Location = new System.Drawing.Point(158, 108);
+            this.cbCurso.Location = new System.Drawing.Point(158, 107);
             this.cbCurso.Name = "cbCurso";
-            this.cbCurso.Size = new System.Drawing.Size(32, 23);
+            this.cbCurso.Size = new System.Drawing.Size(32, 28);
             this.cbCurso.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(134, 108);
             this.label2.Name = "label2";
@@ -274,6 +288,7 @@ namespace FormsSysacadApp
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(197, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 15);
@@ -282,6 +297,7 @@ namespace FormsSysacadApp
             // 
             // cbAsignatura
             // 
+            this.cbAsignatura.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbAsignatura.FormattingEnabled = true;
             this.cbAsignatura.Items.AddRange(new object[] {
             "1",
@@ -294,9 +310,9 @@ namespace FormsSysacadApp
             "7",
             "8",
             "9"});
-            this.cbAsignatura.Location = new System.Drawing.Point(220, 108);
+            this.cbAsignatura.Location = new System.Drawing.Point(218, 107);
             this.cbAsignatura.Name = "cbAsignatura";
-            this.cbAsignatura.Size = new System.Drawing.Size(32, 23);
+            this.cbAsignatura.Size = new System.Drawing.Size(32, 28);
             this.cbAsignatura.TabIndex = 3;
             this.cbAsignatura.SelectedIndexChanged += new System.EventHandler(this.cbAsignatura_SelectedIndexChanged);
             // 
@@ -305,37 +321,23 @@ namespace FormsSysacadApp
             this.dgCursos.AllowUserToAddRows = false;
             this.dgCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
-            this.Nombre,
-            this.Turno});
-            this.dgCursos.Location = new System.Drawing.Point(584, 61);
+            this.dgCursos.Location = new System.Drawing.Point(391, 50);
             this.dgCursos.Name = "dgCursos";
+            this.dgCursos.ReadOnly = true;
+            this.dgCursos.RowHeadersVisible = false;
             this.dgCursos.RowTemplate.Height = 25;
-            this.dgCursos.Size = new System.Drawing.Size(407, 246);
+            this.dgCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgCursos.Size = new System.Drawing.Size(557, 246);
             this.dgCursos.TabIndex = 29;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Turno
-            // 
-            this.Turno.HeaderText = "Turno";
-            this.Turno.Name = "Turno";
             // 
             // FormAddCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1028, 389);
+            this.BackgroundImage = global::FormsSysacadApp.Properties.Resources.FONDO_PRUEBA;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1010, 521);
             this.Controls.Add(this.dgCursos);
             this.Controls.Add(this.cbAsignatura);
             this.Controls.Add(this.label3);
@@ -399,8 +401,5 @@ namespace FormsSysacadApp
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbAsignatura;
         private System.Windows.Forms.DataGridView dgCursos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Turno;
     }
 }

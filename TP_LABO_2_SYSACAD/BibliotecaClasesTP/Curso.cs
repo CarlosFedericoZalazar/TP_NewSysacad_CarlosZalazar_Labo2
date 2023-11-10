@@ -19,13 +19,23 @@ namespace BibliotecaClasesTP
         public int topeCantidadAlumnos = 50;
 
 
-        public Curso(string nombreCurso, string codigoCurso, string descripcion, int cantidadAlumnos)
+        public Curso(string codigoCurso, string nombreCurso, string descripcion, int cantidadAlumnos)
         {
             _codigoCurso = codigoCurso;
             _nombreCurso = nombreCurso;
             _descripcion = descripcion;
             _cantidadAlumnos = cantidadAlumnos;
         }
+
+        // HACER CONSTRUCTOR PARA TOMAR TODOS LOS DATOS DE LA BASE DE DATOS
+
+        public Curso(string codigoCurso, string nombreCurso, string descripcion, int cantidadAlumnos, string turno, string diasCursada, string horario) :this(codigoCurso,nombreCurso,descripcion,cantidadAlumnos)
+        {
+            _turno = turno;
+            _diasCursada = diasCursada;
+            _horario = horario;
+        }
+
 
         public override string ToString()
         {

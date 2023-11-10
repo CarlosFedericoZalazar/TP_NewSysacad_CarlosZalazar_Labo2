@@ -81,6 +81,7 @@ namespace FormsSysacadApp
             // lblCurso
             // 
             this.lblCurso.AutoSize = true;
+            this.lblCurso.BackColor = System.Drawing.Color.Transparent;
             this.lblCurso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCurso.Location = new System.Drawing.Point(58, 77);
             this.lblCurso.Name = "lblCurso";
@@ -91,6 +92,7 @@ namespace FormsSysacadApp
             // lblCodigoCurso
             // 
             this.lblCodigoCurso.AutoSize = true;
+            this.lblCodigoCurso.BackColor = System.Drawing.Color.Transparent;
             this.lblCodigoCurso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCodigoCurso.Location = new System.Drawing.Point(58, 141);
             this.lblCodigoCurso.Name = "lblCodigoCurso";
@@ -101,6 +103,7 @@ namespace FormsSysacadApp
             // lblDescripCurso
             // 
             this.lblDescripCurso.AutoSize = true;
+            this.lblDescripCurso.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripCurso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDescripCurso.Location = new System.Drawing.Point(58, 198);
             this.lblDescripCurso.Name = "lblDescripCurso";
@@ -143,6 +146,7 @@ namespace FormsSysacadApp
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(58, 259);
             this.label1.Name = "label1";
@@ -153,6 +157,7 @@ namespace FormsSysacadApp
             // lblError
             // 
             this.lblError.AutoSize = true;
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
             this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Location = new System.Drawing.Point(208, 104);
             this.lblError.Name = "lblError";
@@ -164,6 +169,7 @@ namespace FormsSysacadApp
             // lblHorarios
             // 
             this.lblHorarios.AutoSize = true;
+            this.lblHorarios.BackColor = System.Drawing.Color.Transparent;
             this.lblHorarios.Location = new System.Drawing.Point(239, 309);
             this.lblHorarios.Name = "lblHorarios";
             this.lblHorarios.Size = new System.Drawing.Size(101, 15);
@@ -183,6 +189,7 @@ namespace FormsSysacadApp
             // lblTurno
             // 
             this.lblTurno.AutoSize = true;
+            this.lblTurno.BackColor = System.Drawing.Color.Transparent;
             this.lblTurno.Location = new System.Drawing.Point(126, 309);
             this.lblTurno.Name = "lblTurno";
             this.lblTurno.Size = new System.Drawing.Size(38, 15);
@@ -193,10 +200,6 @@ namespace FormsSysacadApp
             // 
             this.cbTurnos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbTurnos.FormattingEnabled = true;
-            this.cbTurnos.Items.AddRange(new object[] {
-            "MAÑANA",
-            "TARDE",
-            "NOCHE"});
             this.cbTurnos.Location = new System.Drawing.Point(86, 327);
             this.cbTurnos.Name = "cbTurnos";
             this.cbTurnos.Size = new System.Drawing.Size(121, 28);
@@ -206,6 +209,7 @@ namespace FormsSysacadApp
             // lblDiasCursada
             // 
             this.lblDiasCursada.AutoSize = true;
+            this.lblDiasCursada.BackColor = System.Drawing.Color.Transparent;
             this.lblDiasCursada.Location = new System.Drawing.Point(410, 242);
             this.lblDiasCursada.Name = "lblDiasCursada";
             this.lblDiasCursada.Size = new System.Drawing.Size(91, 15);
@@ -216,12 +220,6 @@ namespace FormsSysacadApp
             // 
             this.cbDiasCursada.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbDiasCursada.FormattingEnabled = true;
-            this.cbDiasCursada.Items.AddRange(new object[] {
-            "LUNES",
-            "MARTES",
-            "MIERCOLES",
-            "JUEVES",
-            "VIERNES"});
             this.cbDiasCursada.Location = new System.Drawing.Point(398, 260);
             this.cbDiasCursada.Name = "cbDiasCursada";
             this.cbDiasCursada.Size = new System.Drawing.Size(121, 28);
@@ -232,6 +230,8 @@ namespace FormsSysacadApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackgroundImage = global::FormsSysacadApp.Properties.Resources.FONDO_PRUEBA;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(548, 481);
             this.Controls.Add(this.lblHorarios);
             this.Controls.Add(this.listHorarios);
@@ -250,8 +250,12 @@ namespace FormsSysacadApp
             this.Controls.Add(this.txtDescripCurso);
             this.Controls.Add(this.txtCodigoCurso);
             this.Controls.Add(this.txtNombreCurso);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormEditCurso";
-            this.Text = "FormEditCurso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "NEW SYSACAD - EDICION DE CURSO";
             this.Load += new System.EventHandler(this.FormEditCurso_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

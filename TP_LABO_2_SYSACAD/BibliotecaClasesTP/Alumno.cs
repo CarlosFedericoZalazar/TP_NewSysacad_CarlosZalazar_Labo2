@@ -11,20 +11,31 @@ namespace BibliotecaClasesTP
         List<string> materias = new List<string>();
         private bool habilitadoCambioPass;
         private Pagos _pagosCursada = new Pagos();
-        
-        public Alumno(string nombre, string apellido, string dni,string legajo, string password, bool cambioPass, string direccion , string email,string telefono) : base(nombre, apellido, dni, legajo, password, direccion,email, telefono)
+        private int _legajo;
+        private string _usuario;
+
+        public Alumno(string nombre, string apellido, string dni, string password, string direccion, string email, string telefono, bool cambioPass) : base(nombre, dni, password, direccion, email, telefono)
         {
             habilitadoCambioPass = cambioPass;
+            _apellido = apellido;
         }
 
+        public Alumno(int legajo,string nombre, string dni, string usuario,string password, string direccion, string email, string telefono, bool cambioPass) : base(nombre, dni, password, direccion, email, telefono)
+        {
+            habilitadoCambioPass = cambioPass;
+            _legajo = legajo;
+            _usuario = usuario;
+        }
+
+        public virtual int Legajo { get => _legajo; set => _legajo = value; }
+        public string NombreApellido { get=> $"{_apellido}, {Nombre}"; }
         public List<string> ListaMaterias { get => materias; set => materias=value; }
 
-
+        public string Usuario { get=>_usuario; set=>_usuario = value; }
         public Pagos PagosCursada { get=>_pagosCursada; set=>_pagosCursada = value; }
         public bool CambioPass { get=> habilitadoCambioPass; set=> habilitadoCambioPass=value; }
 
-
-        public string AsignarLegajo(int legajoAlumno) => (legajoAlumno++).ToString();
+        //public string AsignarLegajo(int legajoAlumno) => (legajoAlumno++).ToString();
 
         public void EnviarCredenciales(Alumno infoAlumno) 
         {

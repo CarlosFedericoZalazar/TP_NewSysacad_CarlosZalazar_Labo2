@@ -29,28 +29,20 @@ namespace FormsSysacadApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.listMaterias = new System.Windows.Forms.ListBox();
             this.cbTurnos = new System.Windows.Forms.ComboBox();
             this.btnInscribirse = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDecsripcion = new System.Windows.Forms.Label();
             this.lblListadoCursos = new System.Windows.Forms.Label();
             this.lblTurnos = new System.Windows.Forms.Label();
-            this.listCursosAlumno = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.dgCursos = new System.Windows.Forms.DataGridView();
+            this.dgCursoInscripto = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCursos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCursoInscripto)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listMaterias
-            // 
-            this.listMaterias.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listMaterias.FormattingEnabled = true;
-            this.listMaterias.ItemHeight = 20;
-            this.listMaterias.Location = new System.Drawing.Point(657, 85);
-            this.listMaterias.Name = "listMaterias";
-            this.listMaterias.Size = new System.Drawing.Size(392, 324);
-            this.listMaterias.TabIndex = 0;
-            this.listMaterias.SelectedIndexChanged += new System.EventHandler(this.listMaterias_SelectedIndexChanged_1);
             // 
             // cbTurnos
             // 
@@ -95,6 +87,7 @@ namespace FormsSysacadApp
             // lblListadoCursos
             // 
             this.lblListadoCursos.AutoSize = true;
+            this.lblListadoCursos.BackColor = System.Drawing.Color.Transparent;
             this.lblListadoCursos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblListadoCursos.Location = new System.Drawing.Point(657, 52);
             this.lblListadoCursos.Name = "lblListadoCursos";
@@ -105,6 +98,7 @@ namespace FormsSysacadApp
             // lblTurnos
             // 
             this.lblTurnos.AutoSize = true;
+            this.lblTurnos.BackColor = System.Drawing.Color.Transparent;
             this.lblTurnos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTurnos.Location = new System.Drawing.Point(527, 75);
             this.lblTurnos.Name = "lblTurnos";
@@ -112,19 +106,10 @@ namespace FormsSysacadApp
             this.lblTurnos.TabIndex = 7;
             this.lblTurnos.Text = "Turnos";
             // 
-            // listCursosAlumno
-            // 
-            this.listCursosAlumno.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listCursosAlumno.FormattingEnabled = true;
-            this.listCursosAlumno.ItemHeight = 20;
-            this.listCursosAlumno.Location = new System.Drawing.Point(54, 85);
-            this.listCursosAlumno.Name = "listCursosAlumno";
-            this.listCursosAlumno.Size = new System.Drawing.Size(392, 324);
-            this.listCursosAlumno.TabIndex = 8;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(54, 52);
             this.label1.Name = "label1";
@@ -143,22 +128,64 @@ namespace FormsSysacadApp
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // dgCursos
+            // 
+            this.dgCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgCursos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCursos.Location = new System.Drawing.Point(657, 85);
+            this.dgCursos.MultiSelect = false;
+            this.dgCursos.Name = "dgCursos";
+            this.dgCursos.ReadOnly = true;
+            this.dgCursos.RowHeadersVisible = false;
+            this.dgCursos.RowTemplate.Height = 25;
+            this.dgCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgCursos.Size = new System.Drawing.Size(416, 324);
+            this.dgCursos.TabIndex = 11;
+            // 
+            // dgCursoInscripto
+            // 
+            this.dgCursoInscripto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgCursoInscripto.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgCursoInscripto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCursoInscripto.Location = new System.Drawing.Point(32, 85);
+            this.dgCursoInscripto.MultiSelect = false;
+            this.dgCursoInscripto.Name = "dgCursoInscripto";
+            this.dgCursoInscripto.ReadOnly = true;
+            this.dgCursoInscripto.RowHeadersVisible = false;
+            this.dgCursoInscripto.RowTemplate.Height = 25;
+            this.dgCursoInscripto.Size = new System.Drawing.Size(416, 324);
+            this.dgCursoInscripto.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(494, 299);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(131, 50);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "PRUEBA";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormInscripCursosAlum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackgroundImage = global::FormsSysacadApp.Properties.Resources.FONDO_PRUEBA;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1114, 516);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dgCursoInscripto);
+            this.Controls.Add(this.dgCursos);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listCursosAlumno);
             this.Controls.Add(this.lblTurnos);
             this.Controls.Add(this.lblListadoCursos);
             this.Controls.Add(this.lblDecsripcion);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.btnInscribirse);
             this.Controls.Add(this.cbTurnos);
-            this.Controls.Add(this.listMaterias);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -166,22 +193,24 @@ namespace FormsSysacadApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NEW SYSACAD - INSCRIPCION A CURSOS";
             this.Load += new System.EventHandler(this.FormInscripCursosAlum_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgCursos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCursoInscripto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listMaterias;
         private System.Windows.Forms.ComboBox cbTurnos;
         private System.Windows.Forms.Button btnInscribirse;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblDecsripcion;
         private System.Windows.Forms.Label lblListadoCursos;
         private System.Windows.Forms.Label lblTurnos;
-        private System.Windows.Forms.ListBox listCursosAlumno;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.DataGridView dgCursos;
+        private System.Windows.Forms.DataGridView dgCursoInscripto;
+        private System.Windows.Forms.Button button1;
     }
 }

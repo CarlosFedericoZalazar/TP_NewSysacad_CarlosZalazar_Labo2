@@ -41,6 +41,7 @@ namespace FormsSysacadApp
             // lblAdminLogued
             // 
             this.lblAdminLogued.AutoSize = true;
+            this.lblAdminLogued.BackColor = System.Drawing.Color.Transparent;
             this.lblAdminLogued.Font = new System.Drawing.Font("Cambria", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblAdminLogued.Location = new System.Drawing.Point(12, 18);
             this.lblAdminLogued.Name = "lblAdminLogued";
@@ -50,36 +51,41 @@ namespace FormsSysacadApp
             // 
             // btnRegEstudiante
             // 
-            this.btnRegEstudiante.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRegEstudiante.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnRegEstudiante.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.btnRegEstudiante.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnRegEstudiante.Location = new System.Drawing.Point(482, 127);
             this.btnRegEstudiante.Name = "btnRegEstudiante";
             this.btnRegEstudiante.Size = new System.Drawing.Size(129, 57);
             this.btnRegEstudiante.TabIndex = 1;
             this.btnRegEstudiante.Text = "Registrar Estudiante";
-            this.btnRegEstudiante.UseVisualStyleBackColor = true;
+            this.btnRegEstudiante.UseVisualStyleBackColor = false;
             this.btnRegEstudiante.Click += new System.EventHandler(this.btnRegEstudiante_Click);
             // 
             // btnGestionCurso
             // 
-            this.btnGestionCurso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnGestionCurso.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnGestionCurso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnGestionCurso.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnGestionCurso.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnGestionCurso.Location = new System.Drawing.Point(482, 53);
             this.btnGestionCurso.Name = "btnGestionCurso";
             this.btnGestionCurso.Size = new System.Drawing.Size(129, 57);
             this.btnGestionCurso.TabIndex = 2;
             this.btnGestionCurso.Text = "Gestionar Cursos";
-            this.btnGestionCurso.UseVisualStyleBackColor = true;
+            this.btnGestionCurso.UseVisualStyleBackColor = false;
             this.btnGestionCurso.Click += new System.EventHandler(this.btnGestionCurso_Click_1);
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSalir.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnSalir.ForeColor = System.Drawing.Color.Black;
             this.btnSalir.Location = new System.Drawing.Point(12, 406);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(100, 39);
+            this.btnSalir.Size = new System.Drawing.Size(111, 51);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "SALIR";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // pictureBox1
@@ -96,14 +102,21 @@ namespace FormsSysacadApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(650, 450);
+            this.BackgroundImage = global::FormsSysacadApp.Properties.Resources.FONDO_PRUEBA;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(650, 462);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGestionCurso);
             this.Controls.Add(this.btnRegEstudiante);
             this.Controls.Add(this.lblAdminLogued);
+            this.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Panel Administrador - NEW SYSACAD";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAdmin_FormClosed);
             this.Load += new System.EventHandler(this.FormAdmin_Load);

@@ -12,10 +12,10 @@ namespace FormsSysacadApp
         ///  The main entry point for the application.
         /// </summary>
         /// 
-        public static FormAdmin formularioAdministrador;
+        //public static FormAdmin formularioAdministrador;
         public static FormAlumno formularioAlumno;
-        public static FormRegStudent formularioRegEstudiante;
-        public static FormAdminCursos formularioAdminCursos;
+        //public static FormRegStudent formularioRegEstudiante;
+        //public static FormAdminCursos formularioAdminCursos;
         [STAThread]
         static void Main()
         {

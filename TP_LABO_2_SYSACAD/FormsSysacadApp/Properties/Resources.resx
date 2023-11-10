@@ -121,13 +121,16 @@
   <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="imagen UTN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imagen UTN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="TITULO APP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TITULO APP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fondo Sysacad" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fondo Sysacad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imagen UTN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imagen UTN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FONDO PRUEBA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FONDO PRUEBA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

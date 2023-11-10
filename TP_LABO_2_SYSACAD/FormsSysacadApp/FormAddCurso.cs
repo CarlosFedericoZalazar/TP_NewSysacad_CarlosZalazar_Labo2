@@ -11,17 +11,16 @@ using BibliotecaClasesTP;
 
 namespace FormsSysacadApp
 {
-    public enum Turno
-    {
-        MAÑANA,
-        TARDE,
-        NOCHE
-    }
     public partial class FormAddCurso : Form
     {
         private int maximaCantidadAlumnoCurso = 50;
 
         public FormAddCurso()
+        {
+            InitializeComponent();
+        }
+
+        public FormAddCurso(Curso cursoEditar)
         {
             InitializeComponent();
         }
@@ -37,9 +36,7 @@ namespace FormsSysacadApp
         }
         private void txtNameCurso_Leave(object sender, EventArgs e)
         {
-            txtNameCurso.Text = txtNameCurso.Text.ToUpper();
-            LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtNameCurso.Text), txtNameCurso, lblError);
-
+            txtNameCurso.Text = txtNameCurso.Text.ToUpper();     
         }
 
         private void txtCantidadAlumnos_KeyDown(object sender, KeyEventArgs e)
@@ -52,7 +49,7 @@ namespace FormsSysacadApp
         private void txtCantidadAlumnos_Leave(object sender, EventArgs e)
         {
             var numeroOk = Validador.ValidarCantidadAlumnos(txtCantidadAlumnos.Text, maximaCantidadAlumnoCurso);
-            LogicaDeFormulario.ComportamientoCajaDeTexto(numeroOk, txtCantidadAlumnos, lblError);
+            LogicaForm.ComportamientoCajaDeTexto(numeroOk, txtCantidadAlumnos, lblError);
         }
         private void txtDescription_KeyDown(object sender, KeyEventArgs e)
         {
@@ -64,39 +61,52 @@ namespace FormsSysacadApp
         private void txtDescription_Leave(object sender, EventArgs e)
         {
             txtDescription.Text = txtDescription.Text.ToUpper();
-            LogicaDeFormulario.ComportamientoCajaDeTexto(Validador.ValidarTexto(txtDescription.Text), txtDescription, lblError);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
-        {            
+        {
+            if (txtNameCurso.Text == "")
+            {
+                LogicaForm.ComportamientoCajaDeTexto(false, txtNameCurso, lblError);
+                return;
+            }
+
             int numero = 0;
+            string codigoCurso = "";
+            
             try
-            {                
-                numero = int.Parse(txtCantidadAlumnos.Text);                
+            {
+                numero = int.Parse(txtCantidadAlumnos.Text);
             }
             catch (FormatException)
-            {                
+            {
                 MessageBox.Show("El valor ingresado no es un número válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtCantidadAlumnos.Focus();
-            }        
-            
-            Curso curso = new Curso(txtNameCurso.Text, txtCodCurso.Text, txtDescription.Text, numero);
-            if (cbCurso.SelectedIndex != -1 && cbAsignatura.SelectedIndex != -1) 
-            {
-                curso.CodigoCurso = FormatoStringCurso();
             }
-            MessageBox.Show(curso.CodigoCurso);
+
+            //Curso curso = new Curso(txtNameCurso.Text, txtCodCurso.Text, txtDescription.Text, numero);
+            if (cbCurso.SelectedIndex != -1 && cbAsignatura.SelectedIndex != -1)
+            {
+                codigoCurso = FormatoStringCurso();
+                //curso.CodigoCurso = FormatoStringCurso();
+            }
 
             if (cbDiasCursada.SelectedIndex != -1 && cbTurnos.SelectedIndex != -1 && listHorarios.SelectedIndex != -1)
             {
-                curso.DiasCursada = cbDiasCursada.SelectedItem.ToString();
-                curso.TurnoCursada = cbTurnos.SelectedItem.ToString();
-                curso.HorarioCursada = listHorarios.SelectedItem.ToString();
-
+                string dia = cbDiasCursada.SelectedItem.ToString();
+                string turno = cbTurnos.SelectedItem.ToString();
+                //curso.TurnoCursada = cbTurnos.SelectedItem.ToString();
+                string horario = listHorarios.SelectedItem.ToString();
+                //curso.HorarioCursada = listHorarios.SelectedItem.ToString();
+                Curso curso = new Curso(codigoCurso, txtNameCurso.Text, txtDescription.Text, numero, turno, dia, horario);
+                
                 if (Validador.ValidarExistenciaDeRegistro(curso))
                 {
+                    DataBase.DataBaseOpGuardar(curso);
                     string aux = admnistradorLogueado.Nombre;
-                    admnistradorLogueado.AltaCurso(curso);
+                    //Curso curso = new Curso(codigoCurso, txtNameCurso.Text, txtDescription.Text, numero, turno, horario);
+                    DataBase.DataBaseOpGuardar(curso);
+                    //admnistradorLogueado.AltaCurso(curso);
                     this.Close();
                 }
                 else
@@ -110,6 +120,10 @@ namespace FormsSysacadApp
             {
                 MessageBox.Show("DEBE IDENTIFICAR CORRECTAMENTE EL HORARIO DE CURSADA", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            // PRUEBA
+            //Curso prueba = new Curso("2", "JAZMIN", "GENIA", 30,"TARDE","VIERNES","18:00");
+            //DataBase.DataBaseOpGuardar(prueba);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -119,6 +133,7 @@ namespace FormsSysacadApp
             if (resultado == DialogResult.Yes)
             {
                 this.Close();
+
             }            
         }
 
@@ -126,25 +141,17 @@ namespace FormsSysacadApp
         {
             listHorarios.Items.Clear();
             string turno = cbTurnos.SelectedItem.ToString();
-
-            LogicaDeFormulario.SeleccionHorarioPorTurno(turno, listHorarios);            
+            LogicaForm.SeleccionHorarioPorTurno(turno, listHorarios);
         }
 
         private void FormAddCurso_Load(object sender, EventArgs e)
         {            
-            cbTurnos.DataSource = Enum.GetValues(typeof(Turno));
             CargaCursosEnLista();
-            //LogicaDeFormulario.ActualizarContenidoListBoxes(lbCursos);
-        }
-
-        private void cbDiasCursada_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void CargaCursosEnLista()
         {
-            LogicaDeFormulario.ActualizarContenidoDataGridView(dgCursos);
+            LogicaForm.CargarDataGridViewCursos(dgCursos);
         }
 
         private string FormatoStringCurso() => $"C{cbCurso.SelectedItem.ToString()}A{cbAsignatura.SelectedItem.ToString()}";
@@ -153,5 +160,12 @@ namespace FormsSysacadApp
         {
             txtCodCurso.Text = FormatoStringCurso();
         }
+
+        private void cbDiasCursada_Enter(object sender, EventArgs e)
+        {
+            cbDiasCursada.DataSource = Enum.GetValues(typeof(Horarios.Dias));
+            cbTurnos.DataSource = Enum.GetValues(typeof(Horarios.Turno));
+        }
+
     }
 }

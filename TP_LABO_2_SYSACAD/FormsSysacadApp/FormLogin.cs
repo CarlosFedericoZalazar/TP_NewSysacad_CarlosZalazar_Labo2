@@ -18,7 +18,7 @@ namespace FormsSysacadApp
         public FormLogin()
         {
             InitializeComponent();
-            CrearNuevoAdministrador();
+            //CrearNuevoAdministrador();
             Console.WriteLine("Inicio del Programa");
         }
 
@@ -47,15 +47,17 @@ namespace FormsSysacadApp
             {
                 try
                 {
-                    Alumno alumnoSelect = Validador.ValidarExistenciaUser(listasUsuarios.Estudiantes,txtUsuario.Text, txtPass.Text);
+                    var listaALumnos = DataBase.DataBaseOpRead<Alumno>(DataBase.MapAlumno, Query.QuerySelectAlumno);
+                    //LOGICA BUSQUEDA ALUMNO POR BASE DE DATOS
+                    Alumno alumnoSelect = Validador.ValidarExistenciaUser(listaALumnos, txtUsuario.Text, txtPass.Text);
                     if (alumnoSelect == null)
                     {
                         throw new MyExceptions.ValorNullException("El valor no puede ser nulo.");
                     }
-                    else 
+                    else
                     {
                         AperturaFormularioAlumno(alumnoSelect);
-                    }                    
+                    }
                 }
                 catch (MyExceptions.ValorNullException ex)
                 {
@@ -92,9 +94,10 @@ namespace FormsSysacadApp
         /// <param name="administrador">ALUMNO LOGUEADO</param>
         private void AperturaFormularioAlumno(Alumno alumnoSelect)
         {            
-            Program.formularioAlumno = new FormAlumno();
-            Program.formularioAlumno.alumnoLogueado = alumnoSelect;
-            Program.formularioAlumno.Show();            
+            FormAlumno formularioAlumno = new FormAlumno(this);
+
+            formularioAlumno.alumnoLogueado = alumnoSelect;
+            formularioAlumno.Show();            
             this.Hide();
 
         }
@@ -126,13 +129,11 @@ namespace FormsSysacadApp
         private void CrearNuevoAdministrador()
         {
             string hash1 = GestorDeClases.Hash.GenerarHash("1234");
-            string hash2 = GestorDeClases.Hash.GenerarHash("1234");
-            Administrador nuevoAdmnistrador = new Administrador("Lionel", "Tramontini", "admin1122", hash1);
-            Administrador nuevoAdmnistrador2 = new Administrador("Carlos", "Zalazar", "admin114005", hash2);
-            ClaseMaestra listadminClaseMaestra = Datos.Abrir();
-            listadminClaseMaestra.Administradores.Add(nuevoAdmnistrador);
-            listadminClaseMaestra.Administradores.Add(nuevoAdmnistrador2);
-            Datos.Guardar(listadminClaseMaestra);
+            //string hash2 = GestorDeClases.Hash.GenerarHash("1234");
+            Administrador nuevoAdmnistrador = new Administrador("Jazmin", "Alvarez", "admin3128", hash1);
+            //Administrador nuevoAdmnistrador2 = new Administrador("Carlos", "Zalazar", "admin114005", hash2);
+
+            DataBase.DataBaseOpGuardar(nuevoAdmnistrador);
         }
 
         private void btnLogAlumno_Click(object sender, EventArgs e)
@@ -145,6 +146,17 @@ namespace FormsSysacadApp
         {
             txtPass.Clear();
             txtUsuario.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //var x = DataBase.leer(2016);
+            //MessageBox.Show($"{x.Legajo}, {x.NombreApellido}, {x.Direccion},{x.Dni}");
+
+            // LLEMOS UNA LISTA DE ALUMNOS
+            var x = DataBase.LeerListaAlumnos();
+            MessageBox.Show($"{x[0].Legajo}, {x[0].NombreApellido}, {x[0].Direccion},{x[0].Dni}");
+
         }
     }
 }

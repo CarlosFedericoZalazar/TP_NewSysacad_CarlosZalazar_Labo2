@@ -29,68 +29,65 @@ namespace FormsSysacadApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdminCursos));
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAddCurso = new System.Windows.Forms.Button();
-            this.listBoxCursos = new System.Windows.Forms.ListBox();
             this.btnDeleteCurso = new System.Windows.Forms.Button();
             this.btnEditarCurso = new System.Windows.Forms.Button();
             this.lblAdminLoged = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgCursos = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDescripCurso = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgCursos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
             // 
-            this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSalir.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.btnSalir.Location = new System.Drawing.Point(288, 318);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(121, 42);
             this.btnSalir.TabIndex = 0;
             this.btnSalir.Text = "SALIR";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnAddCurso
             // 
+            this.btnAddCurso.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnAddCurso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.btnAddCurso.Location = new System.Drawing.Point(32, 68);
             this.btnAddCurso.Name = "btnAddCurso";
             this.btnAddCurso.Size = new System.Drawing.Size(145, 40);
             this.btnAddCurso.TabIndex = 1;
             this.btnAddCurso.Text = "AGREGAR CURSO";
-            this.btnAddCurso.UseVisualStyleBackColor = true;
+            this.btnAddCurso.UseVisualStyleBackColor = false;
             this.btnAddCurso.Click += new System.EventHandler(this.btnAddCurso_Click);
-            // 
-            // listBoxCursos
-            // 
-            this.listBoxCursos.FormattingEnabled = true;
-            this.listBoxCursos.ItemHeight = 15;
-            this.listBoxCursos.Location = new System.Drawing.Point(214, 248);
-            this.listBoxCursos.Name = "listBoxCursos";
-            this.listBoxCursos.Size = new System.Drawing.Size(443, 49);
-            this.listBoxCursos.TabIndex = 2;
             // 
             // btnDeleteCurso
             // 
+            this.btnDeleteCurso.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnDeleteCurso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.btnDeleteCurso.Location = new System.Drawing.Point(32, 160);
             this.btnDeleteCurso.Name = "btnDeleteCurso";
             this.btnDeleteCurso.Size = new System.Drawing.Size(145, 40);
             this.btnDeleteCurso.TabIndex = 3;
             this.btnDeleteCurso.Text = "ELIMINAR CURSO";
-            this.btnDeleteCurso.UseVisualStyleBackColor = true;
+            this.btnDeleteCurso.UseVisualStyleBackColor = false;
             this.btnDeleteCurso.Click += new System.EventHandler(this.btnDeleteCurso_Click);
             // 
             // btnEditarCurso
             // 
+            this.btnEditarCurso.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnEditarCurso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.btnEditarCurso.Location = new System.Drawing.Point(32, 114);
             this.btnEditarCurso.Name = "btnEditarCurso";
             this.btnEditarCurso.Size = new System.Drawing.Size(145, 40);
             this.btnEditarCurso.TabIndex = 5;
             this.btnEditarCurso.Text = "EDITAR CURSO";
-            this.btnEditarCurso.UseVisualStyleBackColor = true;
+            this.btnEditarCurso.UseVisualStyleBackColor = false;
             this.btnEditarCurso.Click += new System.EventHandler(this.btnEditarCurso_Click);
             // 
             // lblAdminLoged
@@ -120,12 +117,8 @@ namespace FormsSysacadApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgCursos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgCursos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dgCursos.BackgroundColor = System.Drawing.Color.White;
             this.dgCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
             this.dgCursos.Location = new System.Drawing.Point(214, 68);
             this.dgCursos.Name = "dgCursos";
             this.dgCursos.ReadOnly = true;
@@ -134,39 +127,47 @@ namespace FormsSysacadApp
             this.dgCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgCursos.Size = new System.Drawing.Size(443, 152);
             this.dgCursos.TabIndex = 8;
+            this.dgCursos.Click += new System.EventHandler(this.dgCursos_Click);
             // 
-            // Column1
+            // txtDescripCurso
             // 
-            this.Column1.HeaderText = "Curso";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.txtDescripCurso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDescripCurso.Location = new System.Drawing.Point(214, 256);
+            this.txtDescripCurso.Name = "txtDescripCurso";
+            this.txtDescripCurso.ReadOnly = true;
+            this.txtDescripCurso.Size = new System.Drawing.Size(443, 27);
+            this.txtDescripCurso.TabIndex = 10;
             // 
-            // Column2
+            // label2
             // 
-            this.Column2.HeaderText = "Codigo";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Cupo Estudiantes";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(214, 238);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 15);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "DESCRIPCION DEL CURSO";
             // 
             // FormAdminCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::FormsSysacadApp.Properties.Resources.FONDO_PRUEBA;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 372);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtDescripCurso);
             this.Controls.Add(this.dgCursos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAdminLoged);
             this.Controls.Add(this.btnEditarCurso);
             this.Controls.Add(this.btnDeleteCurso);
-            this.Controls.Add(this.listBoxCursos);
             this.Controls.Add(this.btnAddCurso);
             this.Controls.Add(this.btnSalir);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormAdminCursos";
             this.Text = "NEW SYSACAD - PANEL CURSOS";
             this.Activated += new System.EventHandler(this.FormAdminCursos_Activated);
@@ -181,14 +182,12 @@ namespace FormsSysacadApp
 
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnAddCurso;
-        private System.Windows.Forms.ListBox listBoxCursos;
         private System.Windows.Forms.Button btnDeleteCurso;
         private System.Windows.Forms.Button btnEditarCurso;
         private System.Windows.Forms.Label lblAdminLoged;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgCursos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.TextBox txtDescripCurso;
+        private System.Windows.Forms.Label label2;
     }
 }

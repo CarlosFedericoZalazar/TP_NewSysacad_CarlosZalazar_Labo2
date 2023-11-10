@@ -13,9 +13,12 @@ namespace FormsSysacadApp
 {
     public partial class FormAlumno : Form
     {
-        public FormAlumno()
+        private FormLogin _formularioLogin;
+        
+        public FormAlumno(FormLogin formularioLogin)
         {
             InitializeComponent();
+            _formularioLogin = formularioLogin;
             
         }
 
@@ -23,14 +26,15 @@ namespace FormsSysacadApp
 
         private void FormAlumno_Load(object sender, EventArgs e)
         {
-            lblAlumnoLogued.Text = $"Estudiante: {alumnoLogueado.Apellido}, {alumnoLogueado.Nombre}";
+            lblAlumnoLogued.Text = $"Estudiante: {alumnoLogueado.Nombre}";
         }
 
         private void btnInscipCursos_Click(object sender, EventArgs e)
         {
-            FormInscripCursosAlum formularioInscripcionCursos = new FormInscripCursosAlum();
-            formularioInscripcionCursos.alumnoLogueado = this.alumnoLogueado;
-            formularioInscripcionCursos.ShowDialog();
+            FormInscripCursosAlum formularioInscripcionCursos = new FormInscripCursosAlum(this);
+            formularioInscripcionCursos.alumnoLogueado = alumnoLogueado;
+            formularioInscripcionCursos.Show();
+            this.Hide();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

@@ -13,11 +13,11 @@ namespace FormsSysacadApp
 {
     public partial class FormAdmin : Form
     {
-        private FormLogin formularioAdmin;
+        private FormLogin formularioLogin;
         public FormAdmin(FormLogin formularioAdministrador)
         {
             InitializeComponent();
-            formularioAdmin = formularioAdministrador;
+            formularioLogin = formularioAdministrador;
         }
 
         public Administrador admnistradorLogueado { get; set; }
@@ -44,7 +44,7 @@ namespace FormsSysacadApp
 
             if (resultado == DialogResult.Yes)
             {
-                formularioAdmin.Show();
+                formularioLogin.Show();
                 this.Close();
             }
         }

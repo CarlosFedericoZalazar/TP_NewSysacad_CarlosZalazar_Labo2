@@ -63,6 +63,16 @@ namespace FormsSysacadApp.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FONDO_PRUEBA {
+            get {
+                object obj = ResourceManager.GetObject("FONDO PRUEBA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fondo_Sysacad {
             get {
                 object obj = ResourceManager.GetObject("Fondo Sysacad", resourceCulture);

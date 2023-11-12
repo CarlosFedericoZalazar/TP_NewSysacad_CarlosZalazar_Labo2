@@ -120,33 +120,33 @@ namespace FormsSysacadApp
         }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            //    bool comprobartxtNomApellido = ValidacionTextNombreApellido();
-            //    bool comprobarTxtDni = ValidacionTextdni(txtDocument);
-            //    bool comprobarTxtVacios = ValidarTextosVacios();
-            //    bool comprobarTxtEmail = ValidarFormatoEmail();
-            //    bool comprobarTxTelefono = ValidarFormatoTelefono();
+            bool comprobartxtNomApellido = ValidacionTextNombreApellido();
+            bool comprobarTxtDni = ValidacionTextdni(txtDocument);
+            bool comprobarTxtVacios = ValidarTextosVacios();
+            bool comprobarTxtEmail = ValidarFormatoEmail();
+            bool comprobarTxTelefono = ValidarFormatoTelefono();
 
-            //    if (comprobartxtNomApellido && comprobarTxtDni && comprobarTxtVacios &&
-            //        comprobarTxtEmail && comprobarTxTelefono)
-            //    {
-            //        string stringDireccion = $"{txtStreet.Text} {txtNumStreet.Text} {txtDepto.Text}, {txtCity.Text}";
-
-            //        Alumno estudiante = new Alumno(txtName.Text, txtSurname.Text, txtDocument.Text, "0", stringDireccion, txtEmail.Text, txtPhone.Text, checkChangePass.Checked);
-            //        if (Validador.ValidarExistenciaDeRegistro(estudiante))
-            //        {
-            //            DataBase.DataBaseOpGuardar(estudiante);
-            //            //ConfirmarDatos(estudiante);
-            //        }
-            //        else
-            //        {
-            //            DialogResult resultado = MessageBox.Show($"El registro ya existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //            txtDocument.SelectAll();
-            //            txtDocument.Focus();
-            //        }
-            //    }
-            var hash = GestorDeClases.Hash.GenerarHash("1234");
-            Alumno estudiante = new Alumno("Camila", "Holmes", "30528991", hash, "Matheu 50, R. de Escalada", "prueba4@hotmail.com", "1593873873", false);
-            DataBase.DataBaseOpGuardar(estudiante);
+            if (comprobartxtNomApellido && comprobarTxtDni && comprobarTxtVacios &&
+                comprobarTxtEmail && comprobarTxTelefono)
+            {
+                string stringDireccion = $"{txtStreet.Text} {txtNumStreet.Text} {txtDepto.Text}, {txtCity.Text}";
+                string hash = GestorDeClases.Hash.GenerarHash(txtDocument.Text);
+                Alumno estudiante = new Alumno(txtName.Text, txtSurname.Text, txtDocument.Text, hash, stringDireccion, txtEmail.Text, txtPhone.Text, checkChangePass.Checked);
+                if (Validador.ValidarExistenciaDeRegistro(estudiante))
+                {
+                    DataBase.DataBaseOpGuardar(estudiante);
+                    //ConfirmarDatos(estudiante);
+                }
+                else
+                {
+                    DialogResult resultado = MessageBox.Show($"El registro ya existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtDocument.SelectAll();
+                    txtDocument.Focus();
+                }
+            }
+            //var hash = GestorDeClases.Hash.GenerarHash("1234");
+            //Alumno estudiante = new Alumno("Camila", "Holmes", "30528991", hash, "Matheu 50, R. de Escalada", "prueba4@hotmail.com", "1593873873", false);
+            //DataBase.DataBaseOpGuardar(estudiante);
 
         }
 

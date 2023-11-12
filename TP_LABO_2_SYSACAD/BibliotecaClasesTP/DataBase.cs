@@ -25,10 +25,10 @@ namespace BibliotecaClasesTP
             comando.Connection = conexion;
         }
         
-        public static List<T> DataBaseOpRead<T>(Func<IDataRecord, T> mapeo,Func<string>query)
+        public static List<T> DataBaseOpRead<T>(Func<IDataRecord, T> mapeo,Func<string>query, string filter = "")
         {
             List<T> lista = new List<T>();
-            Console.WriteLine("query");
+
             try
             {
                 if (conexion.State == ConnectionState.Closed)
@@ -36,8 +36,8 @@ namespace BibliotecaClasesTP
                     conexion.Open();
                 }
 
-                comando.CommandText = query();
-                //comando.Parameters.AddWithValue("@ algo...") para evitar la inyeccion sql
+                comando.CommandText = query()+$" {filter}";
+                
                 using (var reader = comando.ExecuteReader())
                 {
                     while (reader.Read())
@@ -59,13 +59,22 @@ namespace BibliotecaClasesTP
             }
         }
 
-        public static void DataBaseOpDelete<T>(string tabla, string col, string idSeleccionado)
+        public static void DataBaseOpDelete<T>(string tabla, string col, string filter)
         {
             try
             {
-                conexion.Open();
-                var query = "DELETE FROM " + tabla + $" WHERE ID_CURSO  = '{idSeleccionado}'";
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+                var query = $"DELETE FROM @tabla WHERE @col  = '@filter'";
                 comando.CommandText = query;
+
+                comando.Parameters.Clear();
+
+                comando.Parameters.AddWithValue("@tabla", tabla);
+                comando.Parameters.AddWithValue("@col", col);
+                comando.Parameters.AddWithValue("@filter", filter);
 
                 comando.ExecuteNonQuery();
             }
@@ -128,8 +137,7 @@ namespace BibliotecaClasesTP
 
                 string usuario = AsignarUserDB(alumno);
 
-                comando.CommandText = query;               
-
+                comando.CommandText = query;
 
                 comando.Parameters.Clear();
 
@@ -145,9 +153,13 @@ namespace BibliotecaClasesTP
                 var filasAfectadas = comando.ExecuteNonQuery();
                 Console.WriteLine("Filas afectadas" + filasAfectadas);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //throw;
+                Console.WriteLine("Error: " + ex.Message);
+                throw;
+            }
+            finally
+            {
                 conexion.Close();
             }
         }
@@ -190,7 +202,6 @@ namespace BibliotecaClasesTP
             }
         }
 
-
         public static Curso MapCurso(IDataRecord reader)
         {           
             var codigoCurso = reader["ID_CURSO"].ToString();
@@ -204,6 +215,33 @@ namespace BibliotecaClasesTP
             
             return curso;
         }
+
+        public static void GuardarInscripcion(Func<string> query,string curso, int legajoAlumno)
+        {
+            try
+            {
+                conexion.Open();
+                comando.CommandText = query();
+
+                comando.Parameters.Clear();
+
+                comando.Parameters.AddWithValue("@legajo", legajoAlumno);
+                comando.Parameters.AddWithValue("@id_curso", curso);
+
+                var filasAfectadas = comando.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
 
         public static void GuardarCurso(Curso curso) 
         {
@@ -227,7 +265,6 @@ namespace BibliotecaClasesTP
             try
             {
                 conexion.Open();
-
 
                 var query = "UPDATE CURSOS SET ID_CURSO = @idCurso, NOMBRE = @nombre, DESCRIPCION = @descripcion, CUPO_ALUMNOS = @cupo_alumnos," +
                         "TURNO = @turno, HORARIO = @horario, INSCRIPTOS = @inscriptos, DIA = @dia WHERE ID_CURSO = @condicion";

@@ -105,8 +105,6 @@ namespace FormsSysacadApp
                     DataBase.DataBaseOpGuardar(curso);
                     string aux = admnistradorLogueado.Nombre;
                     //Curso curso = new Curso(codigoCurso, txtNameCurso.Text, txtDescription.Text, numero, turno, horario);
-                    DataBase.DataBaseOpGuardar(curso);
-                    //admnistradorLogueado.AltaCurso(curso);
                     this.Close();
                 }
                 else

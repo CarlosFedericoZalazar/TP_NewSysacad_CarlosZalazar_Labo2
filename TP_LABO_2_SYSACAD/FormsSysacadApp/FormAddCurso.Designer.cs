@@ -235,7 +235,7 @@ namespace FormsSysacadApp
             this.listHorarios.ItemHeight = 20;
             this.listHorarios.Location = new System.Drawing.Point(341, 352);
             this.listHorarios.Name = "listHorarios";
-            this.listHorarios.Size = new System.Drawing.Size(86, 64);
+            this.listHorarios.Size = new System.Drawing.Size(126, 64);
             this.listHorarios.TabIndex = 8;
             // 
             // lblHorarios

@@ -138,8 +138,8 @@ namespace FormsSysacadApp
 
         private void btnLogAlumno_Click(object sender, EventArgs e)
         {
-            txtUsuario.Text = "0";
-            txtPass.Text = "44286438";
+            txtUsuario.Text = "CZ30527881";
+            txtPass.Text = "30527881";
         }
 
         private void FormLogin_Load(object sender, EventArgs e)

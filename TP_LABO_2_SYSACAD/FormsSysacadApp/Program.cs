@@ -13,7 +13,7 @@ namespace FormsSysacadApp
         /// </summary>
         /// 
         //public static FormAdmin formularioAdministrador;
-        public static FormAlumno formularioAlumno;
+        //public static FormAlumno formularioAlumno;
         //public static FormRegStudent formularioRegEstudiante;
         //public static FormAdminCursos formularioAdminCursos;
         [STAThread]

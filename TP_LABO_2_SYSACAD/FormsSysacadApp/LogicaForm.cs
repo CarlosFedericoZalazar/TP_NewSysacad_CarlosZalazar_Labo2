@@ -61,14 +61,14 @@ namespace FormsSysacadApp
             }
         }
         
-        public static void CargarDataGridViewCursos(DataGridView dgCursos)
+        public static void CargarDataGridViewCursos(DataGridView dgCursos, string filter="")
         {
-            dgCursos.DataSource = DataBase.DataBaseOpRead<Curso>(DataBase.MapCurso, Query.QuerySelectCurso);
+            dgCursos.DataSource = DataBase.DataBaseOpRead<Curso>(DataBase.MapCurso, Query.QuerySelectCurso, filter);
             dgCursos.Refresh();
 
             foreach (DataGridViewColumn column in dgCursos.Columns)
             {
-                column.Resizable = DataGridViewTriState.False;
+                //column.Resizable = DataGridViewTriState.False;
                 column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }

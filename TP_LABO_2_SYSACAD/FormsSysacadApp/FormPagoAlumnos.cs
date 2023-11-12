@@ -109,7 +109,7 @@ namespace FormsSysacadApp
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
-            Program.formularioAlumno.Show();
+            //Program.formularioAlumno.Show();
         }
     }
 }

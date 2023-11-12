@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using BibliotecaClasesTP;
+using System.ComponentModel;
 
 namespace BibliotecaClasesTP
 {
@@ -144,11 +145,11 @@ namespace BibliotecaClasesTP
             return numeroOk;
         }
 
-        public static bool ValidarCoincidenciaCodigoCurso(List<string> listaCursoAlumno, string curso) 
+        public static bool ValidarCoincidenciaCodigoCurso(BindingList<Curso> listaCursoAlumno, Curso curso) 
         {
-            foreach (string item in listaCursoAlumno) 
+            foreach (var item in listaCursoAlumno) 
             {
-                if(item == curso)return true;
+                if(item.CodigoCurso == curso.CodigoCurso) return true;
             }
             return false;
         }

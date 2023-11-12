@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,41 @@ namespace BibliotecaClasesTP
         public void EnviarCredenciales(Alumno infoAlumno) 
         {
             // LOGICA PARA ENVIAR MAIL AL ESTUDIANTE
+        }
+
+        public void InscripcionMaterias(BindingList<Curso> listaCursos, int legajo) 
+        {
+            var listaMateriasSql = RecuperarInscripcionMaterias(legajo);
+            int contadorRegistroAgregados = 0;
+
+            foreach (Curso item in listaCursos) 
+            {
+                if (!listaMateriasSql.Contains(item)) 
+                {
+                    contadorRegistroAgregados++;
+                    DataBase.GuardarInscripcion(Query.QueryInscribirCursosALumno, item.CodigoCurso, legajo);
+                }       
+            }
+            Console.WriteLine(contadorRegistroAgregados);
+        }
+
+        public BindingList<Curso> RecuperarInscripcionMaterias(int legajo) 
+        {
+            BindingList<Curso> listaCursoDataGrid = new BindingList<Curso>();
+
+            List <Curso> listaCursosAlumno = new List<Curso>();
+            string filter = $" WHERE INSCRIPCIONES.LEGAJO = {Legajo}";
+            listaCursosAlumno = DataBase.DataBaseOpRead<Curso>(DataBase.MapCurso, Query.QuerySelectCursosALumno, filter);
+            foreach (var item in listaCursosAlumno) 
+            {
+                listaCursoDataGrid.Add(item);
+            }
+            return listaCursoDataGrid;
+        }
+
+        public void DesuscribirMaterias(int legajo, string idMateria) 
+        {
+            DataBase.GuardarInscripcion(Query.QueryDesinscribirCursosALumno, idMateria, legajo);
         }
 
         public List<Curso> GetListaCursos() 

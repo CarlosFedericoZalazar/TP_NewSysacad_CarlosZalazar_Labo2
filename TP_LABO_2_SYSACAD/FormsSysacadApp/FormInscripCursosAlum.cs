@@ -13,9 +13,8 @@ namespace FormsSysacadApp
 {
     public partial class FormInscripCursosAlum : Form
     {        
-        List<string> cursosInscriptoAlumno = new List<string>();
+        //List<string> cursosInscriptoAlumno = new List<string>();
         List<Curso> listaCursos = GestorDeClases.ExtraerListaCursos();
-
         
         BindingList<Curso> cursosInscriptos = new BindingList<Curso>();
 
@@ -25,21 +24,19 @@ namespace FormsSysacadApp
         {
             InitializeComponent();
             cbTurnos.SelectedIndex = 0;
-            btnInscribirse.Enabled = false;
+            //btnInscribirse.Enabled = false;
             _formularioAlumno = formularioAlumno;
             dgCursoInscripto.DataSource = cursosInscriptos;
+            cbTurnos.DataSource = Enum.GetValues(typeof(Horarios.Turno));
         }
 
         public Alumno alumnoLogueado { get; set; }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //listMaterias.Enabled = true;            
-        }
-
         private void FormInscripCursosAlum_Load(object sender, EventArgs e)
         {
             LogicaForm.CargarDataGridViewCursos(dgCursos);
+            cursosInscriptos = alumnoLogueado.RecuperarInscripcionMaterias(alumnoLogueado.Legajo);
+            dgCursoInscripto.DataSource = cursosInscriptos;
 
             dgCursos.Columns[7].Visible = true;
 
@@ -50,52 +47,32 @@ namespace FormsSysacadApp
 
         }
 
-        private void btnInscribirse_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            //var cursoSeleccionado = (Curso)listMaterias.SelectedItem;
-
-            //bool cursoYaInscripto = Validador.ValidarCoincidenciaCodigoCurso(cursosInscriptoAlumno, cursoSeleccionado.CodigoCurso);
-            //if (cursoYaInscripto)
-            //{
-            //    MessageBox.Show("EL REGISTRO YA EXISTE");
-            //}
-            //else
-            //{
-            //    //cursosInscriptoAlumno.Add(cursoSeleccionado.CodigoCurso);
-            //    CargarListasCursos(listCursosAlumno, cursosInscriptoAlumno);
-            //}
-        }
-
-        private void listMaterias_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            btnInscribirse.Enabled = true;
-            //Curso cursoSeleccioando = (Curso)listMaterias.SelectedItem;
-            //txtDescripcion.Text = cursoSeleccioando.Descripcion;
-        }
-
-        private void CargarListasCursos(ListBox cajaList, List<Curso>listaCursos)
-        {
-            LogicaForm.ActualizarContenidoListBoxes(cajaList, cbTurnos.SelectedItem.ToString());
-        }
-
-        private void CargarListasCursos(ListBox cajaList, List<string> cursosInscriptoAlumno)
-        {
-            cajaList.Items.Clear();
-            foreach (string itemCodMateria in cursosInscriptoAlumno) 
+            Curso cursoSeleccionado = (Curso)dgCursos.CurrentRow.DataBoundItem;
+            
+            bool cursoYaInscripto = Validador.ValidarCoincidenciaCodigoCurso(cursosInscriptos, cursoSeleccionado);
+           if (cursoYaInscripto)
             {
-                string infoCodigoCurso = GestorDeClases.AccederDatosCursoPorCodigo(itemCodMateria);
-                cajaList.Items.Add(infoCodigoCurso);
+                MessageBox.Show("EL REGISTRO YA EXISTE");
+            }
+            else
+            {
+                cursosInscriptos.Add(cursoSeleccionado);
             }
         }
+
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            bool todoOk = GestorDeClases.ModificarCursosAlumno(alumnoLogueado, cursosInscriptoAlumno);
-            if (todoOk)
-            {
-                MessageBox.Show("Se han Inscripto correctamente los Cursos Indicados");
-            }
-            this.Close();
+
+            alumnoLogueado.InscripcionMaterias(cursosInscriptos,alumnoLogueado.Legajo);
+            //bool todoOk = GestorDeClases.ModificarCursosAlumno(alumnoLogueado, cursosInscriptoAlumno);
+            //if (todoOk)
+            //{
+            //    MessageBox.Show("Se han Inscripto correctamente los Cursos Indicados");
+            //}
+            //this.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -105,12 +82,36 @@ namespace FormsSysacadApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dgCursos.SelectedRows.Count > 0)
+            //TODO: RECUPERAR LISTA DE CURSOS INSCRIPTOS.
+            
+            
+            dgCursoInscripto.DataSource = alumnoLogueado.RecuperarInscripcionMaterias(alumnoLogueado.Legajo);
+
+        }
+
+        private void cbTurnos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string turno = cbTurnos.SelectedItem.ToString();
+            LogicaForm.CargarDataGridViewCursos(dgCursos, $"WHERE TURNO = '{turno}'");
+            
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            LogicaForm.CargarDataGridViewCursos(dgCursos);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgCursoInscripto.SelectedRows.Count > 0) 
             {
-                Curso cursoSeleccionado = (Curso)dgCursos.CurrentRow.DataBoundItem;
-                //Curso prueba = new Curso("C8A8","Matematica","sumas",2,"TARDE","LUNEAS","");
-                cursosInscriptos.Add(cursoSeleccionado);
+                var numero = cursosInscriptos.Count();
+                Curso cursoSeleccionado = (Curso)dgCursoInscripto.CurrentRow.DataBoundItem;
+                cursosInscriptos.Remove(cursoSeleccionado);
+                alumnoLogueado.DesuscribirMaterias(alumnoLogueado.Legajo, cursoSeleccionado.CodigoCurso);
+                var numero2 = cursosInscriptos.Count();
             }
+
         }
     }
 }

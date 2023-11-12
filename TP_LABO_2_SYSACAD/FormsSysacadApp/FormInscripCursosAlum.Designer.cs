@@ -30,7 +30,7 @@ namespace FormsSysacadApp
         private void InitializeComponent()
         {
             this.cbTurnos = new System.Windows.Forms.ComboBox();
-            this.btnInscribirse = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDecsripcion = new System.Windows.Forms.Label();
             this.lblListadoCursos = new System.Windows.Forms.Label();
@@ -40,6 +40,8 @@ namespace FormsSysacadApp
             this.dgCursos = new System.Windows.Forms.DataGridView();
             this.dgCursoInscripto = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnMostrar = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCursoInscripto)).BeginInit();
             this.SuspendLayout();
@@ -48,25 +50,22 @@ namespace FormsSysacadApp
             // 
             this.cbTurnos.FormattingEnabled = true;
             this.cbTurnos.Items.AddRange(new object[] {
-            "(TODOS)",
-            "MAÑANA",
-            "TARDE",
-            "NOCHE"});
+            "(TODOS)"});
             this.cbTurnos.Location = new System.Drawing.Point(494, 108);
             this.cbTurnos.Name = "cbTurnos";
             this.cbTurnos.Size = new System.Drawing.Size(121, 23);
             this.cbTurnos.TabIndex = 1;
-            this.cbTurnos.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbTurnos.SelectedIndexChanged += new System.EventHandler(this.cbTurnos_SelectedIndexChanged);
             // 
-            // btnInscribirse
+            // btnAdd
             // 
-            this.btnInscribirse.Location = new System.Drawing.Point(494, 198);
-            this.btnInscribirse.Name = "btnInscribirse";
-            this.btnInscribirse.Size = new System.Drawing.Size(131, 64);
-            this.btnInscribirse.TabIndex = 2;
-            this.btnInscribirse.Text = "INSCRIBIRSE";
-            this.btnInscribirse.UseVisualStyleBackColor = true;
-            this.btnInscribirse.Click += new System.EventHandler(this.btnInscribirse_Click);
+            this.btnAdd.Location = new System.Drawing.Point(494, 198);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(131, 64);
+            this.btnAdd.TabIndex = 2;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtDescripcion
             // 
@@ -130,6 +129,8 @@ namespace FormsSysacadApp
             // 
             // dgCursos
             // 
+            this.dgCursos.AllowUserToResizeColumns = false;
+            this.dgCursos.AllowUserToResizeRows = false;
             this.dgCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgCursos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -145,6 +146,8 @@ namespace FormsSysacadApp
             // 
             // dgCursoInscripto
             // 
+            this.dgCursoInscripto.AllowUserToResizeColumns = false;
+            this.dgCursoInscripto.AllowUserToResizeRows = false;
             this.dgCursoInscripto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgCursoInscripto.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgCursoInscripto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -154,18 +157,39 @@ namespace FormsSysacadApp
             this.dgCursoInscripto.ReadOnly = true;
             this.dgCursoInscripto.RowHeadersVisible = false;
             this.dgCursoInscripto.RowTemplate.Height = 25;
+            this.dgCursoInscripto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgCursoInscripto.Size = new System.Drawing.Size(416, 324);
             this.dgCursoInscripto.TabIndex = 12;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(494, 299);
+            this.button1.Location = new System.Drawing.Point(484, 428);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(131, 50);
             this.button1.TabIndex = 13;
             this.button1.Text = "PRUEBA";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnMostrar
+            // 
+            this.btnMostrar.Location = new System.Drawing.Point(494, 152);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(121, 23);
+            this.btnMostrar.TabIndex = 14;
+            this.btnMostrar.Text = "Mostrar Todos";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(494, 292);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(131, 64);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // FormInscripCursosAlum
             // 
@@ -175,6 +199,8 @@ namespace FormsSysacadApp
             this.BackgroundImage = global::FormsSysacadApp.Properties.Resources.FONDO_PRUEBA;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1114, 516);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgCursoInscripto);
             this.Controls.Add(this.dgCursos);
@@ -184,7 +210,7 @@ namespace FormsSysacadApp
             this.Controls.Add(this.lblListadoCursos);
             this.Controls.Add(this.lblDecsripcion);
             this.Controls.Add(this.txtDescripcion);
-            this.Controls.Add(this.btnInscribirse);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.cbTurnos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
@@ -202,7 +228,7 @@ namespace FormsSysacadApp
 
         #endregion
         private System.Windows.Forms.ComboBox cbTurnos;
-        private System.Windows.Forms.Button btnInscribirse;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblDecsripcion;
         private System.Windows.Forms.Label lblListadoCursos;
@@ -212,5 +238,7 @@ namespace FormsSysacadApp
         private System.Windows.Forms.DataGridView dgCursos;
         private System.Windows.Forms.DataGridView dgCursoInscripto;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMostrar;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

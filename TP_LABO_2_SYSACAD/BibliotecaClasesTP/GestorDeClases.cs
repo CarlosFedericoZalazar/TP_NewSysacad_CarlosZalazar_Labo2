@@ -9,7 +9,7 @@ namespace BibliotecaClasesTP
     public static class GestorDeClases
     {
         public static List<Curso> ExtraerListaCursos() => Datos.Abrir().Cursos;
-        public static List<Alumno> ExtraerListaEstudiantes() => Datos.Abrir().Estudiantes;
+        public static List<Alumno> ExtraerListaEstudiantes() => DataBase.LeerListaAlumnos();
 
         public static bool ModificarCursosAlumno(Alumno alumnoModificar, List<string> cursosInscriptos) 
         {

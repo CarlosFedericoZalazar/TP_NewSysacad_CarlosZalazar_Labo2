@@ -26,16 +26,16 @@ namespace FormsSysacadApp
             dGridPagos.Rows.Clear();
             CargaEncabezadoDataGrid();
             CargarListDataGrid();
-            double aux = alumnoLogueado.PagosCursada.GastosAdministrativos;
+            //double aux = alumnoLogueado.PagosCursada.GastosAdministrativos;
 
         }
 
         private void CargarListDataGrid() 
         {
-            for (int i = 0; i < alumnoLogueado.PagosCursada.cuotasMeses.Count; i++)
-            {
-                CargaFilasDataGrid(i + 1, alumnoLogueado.PagosCursada.cuotasMeses[i], alumnoLogueado.PagosCursada.GastosAdministrativos, alumnoLogueado.PagosCursada.GastosExtraEstudios);
-            }
+            //for (int i = 0; i < Pagos.cuotasMeses.Count; i++)
+            //{
+            //    CargaFilasDataGrid(i + 1, alumnoLogueado.PagosCursada.cuotasMeses[i], alumnoLogueado.PagosCursada.GastosAdministrativos, alumnoLogueado.PagosCursada.GastosExtraEstudios);
+            //}
         }
 
         private void CargaEncabezadoDataGrid() 
@@ -60,7 +60,7 @@ namespace FormsSysacadApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int lastIndex = alumnoLogueado.PagosCursada.cuotasMeses.Count;
+            //int lastIndex = alumnoLogueado.PagosCursada.cuotasMeses.Count;
             //dGridPagos.Rows.RemoveAt(lastIndex);
         }
         private string EstadoDeCuota(double cuota)

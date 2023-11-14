@@ -59,5 +59,10 @@ namespace FormsSysacadApp
         {
             lblAdminLogued.Text = $"Admin: {admnistradorLogueado.Apellido}, {admnistradorLogueado.Nombre}";
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

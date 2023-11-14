@@ -8,7 +8,7 @@ namespace BibliotecaClasesTP
 {
     public static class GestorDeClases
     {
-        public static List<Curso> ExtraerListaCursos() => Datos.Abrir().Cursos;
+        public static List<Curso> ExtraerListaCursos() => Archivo.Abrir().Cursos;
         public static List<Alumno> ExtraerListaEstudiantes() => DataBase.LeerListaAlumnos();
 
         public static bool ModificarCursosAlumno(Alumno alumnoModificar, List<string> cursosInscriptos) 
@@ -17,7 +17,7 @@ namespace BibliotecaClasesTP
             try
             {
                 int indice = -1;
-                ClaseMaestra archivo = Datos.Abrir();
+                ClaseMaestra archivo = Archivo.Abrir();
                 var listaEstudiantes = archivo.Estudiantes;
 
                 foreach (var item in listaEstudiantes)
@@ -30,7 +30,7 @@ namespace BibliotecaClasesTP
                 }
                 listaEstudiantes[indice].ListaMaterias = cursosInscriptos;
                 archivo.Estudiantes = listaEstudiantes;
-                Datos.Guardar(archivo);
+                Archivo.Guardar(archivo);
                 saveOk = true;
             }
             catch (Exception)
@@ -85,11 +85,11 @@ namespace BibliotecaClasesTP
 
         public static void EliminarRegistro(Curso cursoDelete)
         {
-            ClaseMaestra archivo = Datos.Abrir();
+            ClaseMaestra archivo = Archivo.Abrir();
             List<Alumno> listaAlumnos = archivo.Estudiantes;
             archivo.Estudiantes = EliminarRegistro(listaAlumnos, cursoDelete.CodigoCurso);
             archivo.Cursos.Remove(cursoDelete);
-            Datos.Guardar(archivo);
+            Archivo.Guardar(archivo);
         }
 
         public static List<Alumno> EliminarRegistro(List<Alumno> listaAlumnos, string cursoDelete)
@@ -110,31 +110,31 @@ namespace BibliotecaClasesTP
 
         public static void ModificarRegistroCurso(Curso curso, Curso cursoModificado)
         {
-            ClaseMaestra archivo = Datos.Abrir();
+            ClaseMaestra archivo = Archivo.Abrir();
             var listaCursos = archivo.Cursos;
             int indice = listaCursos.IndexOf(curso);
             archivo.Cursos[indice] = cursoModificado;
-            Datos.Guardar(archivo);
+            Archivo.Guardar(archivo);
         }
 
         public static string  GenerarLegajo() 
         {
-            ClaseMaestra archivo = Datos.Abrir();
+            ClaseMaestra archivo = Archivo.Abrir();
             return archivo.Estudiantes.Count().ToString();
         }
 
         public static void AltaRegistro(Alumno nuevoRegistro)
         {
-            ClaseMaestra listaCursoClaseMaestra = Datos.Abrir();
+            ClaseMaestra listaCursoClaseMaestra = Archivo.Abrir();
             listaCursoClaseMaestra.Estudiantes.Add(nuevoRegistro);
-            Datos.Guardar(listaCursoClaseMaestra);
+            Archivo.Guardar(listaCursoClaseMaestra);
         }
 
         public static void AltaRegistro(Curso nuevoRegistro)
         {
-            ClaseMaestra listaCursoClaseMaestra = Datos.Abrir();
+            ClaseMaestra listaCursoClaseMaestra = Archivo.Abrir();
             listaCursoClaseMaestra.Cursos.Add(nuevoRegistro);
-            Datos.Guardar(listaCursoClaseMaestra);
+            Archivo.Guardar(listaCursoClaseMaestra);
         }
 
     }

@@ -135,6 +135,7 @@ namespace FormsSysacadApp
                 if (Validador.ValidarExistenciaDeRegistro(estudiante))
                 {
                     DataBase.DataBaseOpGuardar(estudiante);
+                    admnistradorLogueado.CargarCuotaAlumno(int.Parse(estudiante.Dni));
                     //ConfirmarDatos(estudiante);
                 }
                 else

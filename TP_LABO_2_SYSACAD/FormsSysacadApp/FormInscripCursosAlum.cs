@@ -13,20 +13,17 @@ namespace FormsSysacadApp
 {
     public partial class FormInscripCursosAlum : Form
     {        
-        //List<string> cursosInscriptoAlumno = new List<string>();
         List<Curso> listaCursos = GestorDeClases.ExtraerListaCursos();
         
         BindingList<Curso> cursosInscriptos = new BindingList<Curso>();
 
 
-        FormAlumno _formularioAlumno;
-        public FormInscripCursosAlum(FormAlumno formularioAlumno)
+        private FormAlumno formularioAlumno;
+        public FormInscripCursosAlum(FormAlumno formAlumno)
         {
             InitializeComponent();
             cbTurnos.SelectedIndex = 0;
-            //btnInscribirse.Enabled = false;
-            _formularioAlumno = formularioAlumno;
-            dgCursoInscripto.DataSource = cursosInscriptos;
+            formularioAlumno = formAlumno;
             cbTurnos.DataSource = Enum.GetValues(typeof(Horarios.Turno));
         }
 
@@ -36,9 +33,9 @@ namespace FormsSysacadApp
         {
             LogicaForm.CargarDataGridViewCursos(dgCursos);
             cursosInscriptos = alumnoLogueado.RecuperarInscripcionMaterias(alumnoLogueado.Legajo);
+            
             dgCursoInscripto.DataSource = cursosInscriptos;
 
-            dgCursos.Columns[7].Visible = true;
 
             foreach (int columnIndex in new[] { 2, 3, 4, 5, 6, 7 })
             {
@@ -50,29 +47,45 @@ namespace FormsSysacadApp
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Curso cursoSeleccionado = (Curso)dgCursos.CurrentRow.DataBoundItem;
+
+               bool cursoYaInscripto = Validador.ValidarCoincidenciaCodigoCurso(cursosInscriptos, cursoSeleccionado);
+               if (cursoYaInscripto)
+               {
+                   MessageBox.Show("EL REGISTRO YA EXISTE", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               }
+               else
+               {
+                   if (cursoSeleccionado.CantidadAlumnos != 0)
+                   {
+                      cursoSeleccionado.CantidadAlumnos -= 1;
+                      cursoSeleccionado.CantidadInscriptos += 1;
+
+                       DataBase.ModificarCurso(cursoSeleccionado, cursoSeleccionado.CodigoCurso);
+                       dgCursos.Refresh();
+                       cursosInscriptos.Add(cursoSeleccionado);
+                   }
+                   else
+                   {
+                       MessageBox.Show("NO QUEDAN MAS CUPOS PARA ESTE CURSO", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                   }
+               }
             
-            bool cursoYaInscripto = Validador.ValidarCoincidenciaCodigoCurso(cursosInscriptos, cursoSeleccionado);
-           if (cursoYaInscripto)
-            {
-                MessageBox.Show("EL REGISTRO YA EXISTE");
-            }
-            else
-            {
-                cursosInscriptos.Add(cursoSeleccionado);
-            }
         }
 
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
-            alumnoLogueado.InscripcionMaterias(cursosInscriptos,alumnoLogueado.Legajo);
-            //bool todoOk = GestorDeClases.ModificarCursosAlumno(alumnoLogueado, cursosInscriptoAlumno);
-            //if (todoOk)
-            //{
-            //    MessageBox.Show("Se han Inscripto correctamente los Cursos Indicados");
-            //}
-            //this.Close();
+            var cantidadMateriasInscriptas = alumnoLogueado.InscripcionMaterias(cursosInscriptos,alumnoLogueado.Legajo);
+            if (cantidadMateriasInscriptas != 0)
+            {
+                MessageBox.Show($"Se ha Inscripto correctamente a {cantidadMateriasInscriptas} Cursos", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else 
+            {
+                MessageBox.Show($"No se ha registrado a nuevos cursos", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            this.Close();
+            formularioAlumno.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -82,10 +95,15 @@ namespace FormsSysacadApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //TODO: RECUPERAR LISTA DE CURSOS INSCRIPTOS.
-            
-            
-            dgCursoInscripto.DataSource = alumnoLogueado.RecuperarInscripcionMaterias(alumnoLogueado.Legajo);
+            Curso cursoSeleccionado = (Curso)dgCursos.CurrentRow.DataBoundItem;
+            cursoSeleccionado.CantidadAlumnos -= 1;
+
+            DataBase.ModificarCurso(cursoSeleccionado, cursoSeleccionado.CodigoCurso);
+            dgCursos.Refresh();
+            //var x = DataBase.DataBaseOpRead<Curso>(DataBase.MapCurso, Query.QuerySelectCurso);
+            //int indice = x.IndexOf(cursoSeleccionado);
+            //x[indice] = cursoSeleccionado;
+            //dgCursos.DataSource = x;
 
         }
 
@@ -109,6 +127,10 @@ namespace FormsSysacadApp
                 Curso cursoSeleccionado = (Curso)dgCursoInscripto.CurrentRow.DataBoundItem;
                 cursosInscriptos.Remove(cursoSeleccionado);
                 alumnoLogueado.DesuscribirMaterias(alumnoLogueado.Legajo, cursoSeleccionado.CodigoCurso);
+                cursoSeleccionado.CantidadAlumnos += 1;
+                cursoSeleccionado.CantidadInscriptos -= 1;
+                DataBase.ModificarCurso(cursoSeleccionado, cursoSeleccionado.CodigoCurso);
+                dgCursos.Refresh();
                 var numero2 = cursosInscriptos.Count();
             }
 

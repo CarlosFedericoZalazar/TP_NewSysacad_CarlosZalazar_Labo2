@@ -9,7 +9,8 @@ using System.IO;
 
 namespace BibliotecaClasesTP
 {
-    public static class Datos
+    public static class Archivo
+
     {
         private static string _directorio = DirectorioArchivo();
 
@@ -53,11 +54,11 @@ namespace BibliotecaClasesTP
             }
         }
 
+
         //------------------------------------------------------------------------------
 
         public static T Abrir<T>(string fileName)
         {
-
             T listaDatos = default(T);
             try
             {

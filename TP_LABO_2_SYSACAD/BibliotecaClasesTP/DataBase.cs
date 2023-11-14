@@ -59,6 +59,50 @@ namespace BibliotecaClasesTP
             }
         }
 
+        public static int DataBaseReadLegajoAlumno(int dni)
+        {
+            try
+            {
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+
+                comando.CommandText = $"SELECT LEGAJO FROM ALUMNOS WHERE DNI = @dni";
+
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@dni", dni);
+                using (var reader = comando.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        if (reader["LEGAJO"] != DBNull.Value)
+                        {
+                            return Convert.ToInt32(reader["LEGAJO"]);
+                        }
+                    }
+                }
+                // Si no se encuentra ningún registro o la columna "LEGAJO" es DBNull, podrías devolver un valor por defecto o lanzar una excepción, dependiendo de tus necesidades.
+                return default(int);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+
+
+
+
+
+
+
+
         public static void DataBaseOpDelete<T>(string tabla, string col, string filter)
         {
             try
@@ -117,9 +161,13 @@ namespace BibliotecaClasesTP
                 var filasAfectadas = comando.ExecuteNonQuery();
                 Console.WriteLine("Filas afectadas" + filasAfectadas);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //throw;
+                Console.WriteLine("Error: " + ex.Message);
+                throw;
+            }
+            finally
+            {
                 conexion.Close();
             }
         }
@@ -133,7 +181,8 @@ namespace BibliotecaClasesTP
                 conexion.Open();
                 // Alumno("0", txtName.Text, txtSurname.Text, txtDocument.Text, "0", stringDireccion, txtEmail.Text, txtPhone.Text, checkChangePass.Checked);
                 var query = "INSERT INTO ALUMNOS (NOMBRE, DNI, USUARIO, PASSWORD, DIRECCION, EMAIL, TELEFONO, CHANGEPASS) " +
-                $"VALUES (@nombre, @dni, @usuario, @password, @direccion ,@email, @telefono, @cambiopass)";
+                $"VALUES (@nombre, @dni, @usuario, @password, @direccion ,@email, @telefono, @cambiopass);" +
+                $"";
 
                 string usuario = AsignarUserDB(alumno);
 
@@ -164,6 +213,38 @@ namespace BibliotecaClasesTP
             }
         }
 
+        public static void DataBaseOpGuardarCuota(int legajo, int cuota, double monto)
+        {
+            try
+            {
+                conexion.Open();
+
+                var query = "INSERT INTO PAGOS (LEGAJO, CUOTA, MONTO) " +
+                $"VALUES (@legajo, @cuota, @monto)";
+
+                comando.CommandText = query;
+
+                comando.Parameters.Clear();
+
+                comando.Parameters.AddWithValue("@legajo", legajo);
+                comando.Parameters.AddWithValue("@cuota", cuota);
+                comando.Parameters.AddWithValue("@monto", monto);
+
+
+                var filasAfectadas = comando.ExecuteNonQuery();
+                Console.WriteLine("Filas afectadas" + filasAfectadas);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
         private static string AsignarUserDB(Alumno alumno) 
         {
             string palabra1 = alumno.Nombre;
@@ -173,7 +254,6 @@ namespace BibliotecaClasesTP
 
             return UsuarioCreado;
         }
-
 
         public static void DataBaseOpGuardar(Administrador admnistrador)
         {
@@ -195,9 +275,13 @@ namespace BibliotecaClasesTP
                 var filasAfectadas = comando.ExecuteNonQuery();
                 Console.WriteLine("Filas afectadas" + filasAfectadas);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //throw;
+                Console.WriteLine("Error: " + ex.Message);
+                throw;
+            }
+            finally
+            {
                 conexion.Close();
             }
         }
@@ -242,7 +326,6 @@ namespace BibliotecaClasesTP
             }
         }
 
-
         public static void GuardarCurso(Curso curso) 
         {
             var query = $"INSERT INTO CURSOS (ID_CURSO,NOMBRE,DESCRIPCION,CUPO_ALUMNOS,TURNO)" +
@@ -286,9 +369,13 @@ namespace BibliotecaClasesTP
                 var filasAfectadas = comando.ExecuteNonQuery();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //throw;
+                Console.WriteLine("Error: " + ex.Message);
+                throw;
+            }
+            finally
+            {
                 conexion.Close();
             }
         }

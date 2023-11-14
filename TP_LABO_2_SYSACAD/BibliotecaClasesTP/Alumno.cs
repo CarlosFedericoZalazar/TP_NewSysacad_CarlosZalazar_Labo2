@@ -11,7 +11,7 @@ namespace BibliotecaClasesTP
     {
         List<string> materias = new List<string>();
         private bool habilitadoCambioPass;
-        private Pagos _pagosCursada = new Pagos();
+        //private Pagos _pagosCursada = new Pagos();
         private int _legajo;
         private string _usuario;
 
@@ -19,6 +19,7 @@ namespace BibliotecaClasesTP
         {
             habilitadoCambioPass = cambioPass;
             _apellido = apellido;
+            
         }
 
         public Alumno(int legajo,string nombre, string dni, string usuario,string password, string direccion, string email, string telefono, bool cambioPass) : base(nombre, dni, password, direccion, email, telefono)
@@ -33,17 +34,15 @@ namespace BibliotecaClasesTP
         public List<string> ListaMaterias { get => materias; set => materias=value; }
 
         public string Usuario { get=>_usuario; set=>_usuario = value; }
-        public Pagos PagosCursada { get=>_pagosCursada; set=>_pagosCursada = value; }
+        //public Pagos PagosCursada { get=>_pagosCursada; set=>_pagosCursada = value; }
         public bool CambioPass { get=> habilitadoCambioPass; set=> habilitadoCambioPass=value; }
-
-        //public string AsignarLegajo(int legajoAlumno) => (legajoAlumno++).ToString();
 
         public void EnviarCredenciales(Alumno infoAlumno) 
         {
             // LOGICA PARA ENVIAR MAIL AL ESTUDIANTE
         }
 
-        public void InscripcionMaterias(BindingList<Curso> listaCursos, int legajo) 
+        public int InscripcionMaterias(BindingList<Curso> listaCursos, int legajo) 
         {
             var listaMateriasSql = RecuperarInscripcionMaterias(legajo);
             int contadorRegistroAgregados = 0;
@@ -56,7 +55,7 @@ namespace BibliotecaClasesTP
                     DataBase.GuardarInscripcion(Query.QueryInscribirCursosALumno, item.CodigoCurso, legajo);
                 }       
             }
-            Console.WriteLine(contadorRegistroAgregados);
+            return contadorRegistroAgregados;
         }
 
         public BindingList<Curso> RecuperarInscripcionMaterias(int legajo) 

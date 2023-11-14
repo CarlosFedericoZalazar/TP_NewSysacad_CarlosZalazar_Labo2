@@ -21,7 +21,7 @@ namespace BibliotecaClasesTP
         public static string QueryDesinscribirCursosALumno() => $@"DELETE FROM INSCRIPCIONES WHERE ID_CURSO = @id_curso AND LEGAJO = @legajo";
 
 
-
+        public static string QueryLeerLegajo() => $"SELECT LEGAJO FROM ALUMNOS WHERE DNI = 30527881";
 
         //DELETE FROM ALUMOS; --> BORRAR CONTENIDO DE TABLA
 

@@ -47,6 +47,13 @@ namespace BibliotecaClasesTP
         {
             GestorDeClases.ModificarRegistroCurso(curso, cursoModificado);
         }
+
+        public void CargarCuotaAlumno(int dni) 
+        {
+            var legajo = DataBase.DataBaseReadLegajoAlumno(dni);
+            Pagos cuotasAlumno = new Pagos();
+            cuotasAlumno.CargarPagos(legajo);
+        }
         public string AsignarLegajoAlumno() => GestorDeClases.GenerarLegajo();
 
     }

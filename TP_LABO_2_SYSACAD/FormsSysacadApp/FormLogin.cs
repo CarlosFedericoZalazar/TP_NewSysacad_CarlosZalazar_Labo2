@@ -34,7 +34,7 @@ namespace FormsSysacadApp
         /// <param name="typeUserAdmin">BOOL: TRUE/ADMINISTRADOR, FALSE/ALUMNO</param>
         private void SelectTypeUser(bool typeUserAdmin) 
         {
-            var listasUsuarios = Datos.Abrir();
+            var listasUsuarios = Archivo.Abrir();
             if (typeUserAdmin)
             {                
                 var administradorSelect = Validador.ValidarExistenciaUser(listasUsuarios.Administradores, txtUsuario.Text, txtPass.Text);
@@ -150,12 +150,6 @@ namespace FormsSysacadApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //var x = DataBase.leer(2016);
-            //MessageBox.Show($"{x.Legajo}, {x.NombreApellido}, {x.Direccion},{x.Dni}");
-
-            // LLEMOS UNA LISTA DE ALUMNOS
-            var x = DataBase.LeerListaAlumnos();
-            MessageBox.Show($"{x[0].Legajo}, {x[0].NombreApellido}, {x[0].Direccion},{x[0].Dni}");
 
         }
     }

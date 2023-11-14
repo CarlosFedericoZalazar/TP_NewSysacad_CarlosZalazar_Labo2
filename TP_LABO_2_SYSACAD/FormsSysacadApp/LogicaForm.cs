@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using System.Drawing; // para usar point
 using BibliotecaClasesTP;
 using System.Collections;
-
+using System.ComponentModel;
 
 namespace FormsSysacadApp
 {
@@ -31,7 +31,6 @@ namespace FormsSysacadApp
             {
                 lblError.Visible = false;
             }
-
         }
 
         public static void SeleccionHorarioPorTurno(String turno, ListBox listBoxHorarios)
@@ -39,7 +38,6 @@ namespace FormsSysacadApp
             List<string> listaHarario = Horarios.CargaHorario(turno);
             listBoxHorarios.Items.AddRange(listaHarario.ToArray());
         }
-
 
         public static void ActualizarContenidoListBoxes(ListBox listActualizar, string filter = null, bool sort = true)
         {
@@ -63,8 +61,11 @@ namespace FormsSysacadApp
         
         public static void CargarDataGridViewCursos(DataGridView dgCursos, string filter="")
         {
-            dgCursos.DataSource = DataBase.DataBaseOpRead<Curso>(DataBase.MapCurso, Query.QuerySelectCurso, filter);
-            dgCursos.Refresh();
+            List<Curso> listCurso = DataBase.DataBaseOpRead<Curso>(DataBase.MapCurso, Query.QuerySelectCurso, filter);
+            BindingList<Curso> bindingListDeCursos = new BindingList<Curso>(listCurso);
+
+            dgCursos.DataSource = bindingListDeCursos;
+            //dgCursos.Refresh();
 
             foreach (DataGridViewColumn column in dgCursos.Columns)
             {
@@ -84,13 +85,7 @@ namespace FormsSysacadApp
 
             // Cambia el nombre de la columna usando la propiedad HeaderText.
             dgCursos.Columns[col].HeaderText = nuevoNombre;
-
-
-
         }
-
-
-
 
         //------------------------------------------------------------------------------
         public static bool ValidarNombreApellido(List<TextBox> listaNombreApellido, Label labelError) 
